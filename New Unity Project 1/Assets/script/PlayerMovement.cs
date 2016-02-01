@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	public float speed=6f;
 	Vector3 movement;
-	Animator anim;
+	Animation anim;
 	Rigidbody playerRigidbody;
 	int floorMask;
 	float camRayLength=100;
@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	void Awake()
 	{
 		floorMask=LayerMask.GetMask("Floor");
-		anim = GetComponent<Animator> ();
+		anim = GetComponent<Animation> ();
 		playerRigidbody = GetComponent<Rigidbody> ();
 	}
 	void FixedUpdate()
@@ -46,7 +46,11 @@ public class PlayerMovement : MonoBehaviour
 	void Animating(float h,float v)
 	{
 		bool walking = (h != 0f || v != 0f);
-		anim.SetBool ("IsWalking", walking);
+        if (walking)
+            anim.Play("Walk");
+        else
+            anim.Play("Wait");
+           
 	}
 
 
