@@ -49,6 +49,7 @@
      <Compile Include="Assets\script\CameraFollow.cs" />
      <Compile Include="Assets\script\PlayerMovement.cs" />
      <None Include="Assets\Cha_Data\Shader\WrapLambert.shader" />
+     <None Include="Assets\Models\Modern Interior Pack\Shaders\Glass.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
