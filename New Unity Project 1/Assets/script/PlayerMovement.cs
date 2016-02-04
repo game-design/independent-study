@@ -30,15 +30,15 @@ public class PlayerMovement : MonoBehaviour
 		movement.Set (h, 0f, v);
 		movement = movement.normalized * speed * Time.deltaTime * 1.5f;
 		playerRigidbody.MovePosition (transform.position + movement);
-
+        /*
         // keep character stand~ No x,z rotation.
         float CurRoaX = transform.rotation.x;
         float CurRoaZ = transform.rotation.z;
         float CurRoaY = transform.rotation.y;
         float CurRoaW = transform.rotation.w;
-
+        
         transform.rotation.Set(-CurRoaX/2, CurRoaY, -CurRoaZ/2, CurRoaW);
-
+        */
 	}
 
 	void Turning()
