@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 	void Move(float h,float v)
 	{
 		movement.Set (h, 0f, v);
-		movement = movement.normalized * speed * Time.deltaTime;
+		movement = movement.normalized * speed * Time.deltaTime * 1.5f;
 		playerRigidbody.MovePosition (transform.position + movement);
 
         // keep character stand~ No x,z rotation.
