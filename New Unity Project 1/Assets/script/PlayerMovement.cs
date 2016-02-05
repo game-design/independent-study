@@ -2,7 +2,7 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed=6f;
+	public float speed=18f;
 	Vector3 movement;
 	Animation anim;
 	Rigidbody playerRigidbody;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 	void Move(float h,float v)
 	{
 		movement.Set (h, 0f, v);
-		movement = movement.normalized * speed * Time.deltaTime * 1.5f;
+		movement = movement.normalized * speed * Time.deltaTime;
 		playerRigidbody.MovePosition (transform.position + movement);
         /*
         // keep character stand~ No x,z rotation.
