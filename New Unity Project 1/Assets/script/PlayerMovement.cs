@@ -3,7 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
 	public float speed=18f;
-	Vector3 movement;
+	Vector3 movement, rotationY;
 	Animation anim;
 	Rigidbody playerRigidbody;
 	int floorMask;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 		float h=Input.GetAxisRaw("Horizontal");
 		float v=Input.GetAxisRaw("Vertical");
 		Move (h, v);
-		Turning ();
+		Turning (h,v);
 		Animating (h, v);
 	}
 
@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
 		movement.Set (h, 0f, v);
 		movement = movement.normalized * speed * Time.deltaTime;
 		playerRigidbody.MovePosition (transform.position + movement);
+        
+
+
         /*
         // keep character stand~ No x,z rotation.
         float CurRoaX = transform.rotation.x;
@@ -40,20 +43,37 @@ public class PlayerMovement : MonoBehaviour
         
         transform.rotation.Set(-CurRoaX/2, CurRoaY, -CurRoaZ/2, CurRoaW);
         */
-	}
+    }
 
-	void Turning()
+	void Turning(float h,float v)
 	{
-		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit floorHit;
-		if (Physics.Raycast (camRay, out floorHit, camRayLength, floorMask)) 
-		{
-			Vector3 playerToMouse=floorHit.point-transform.position;
-			playerToMouse.y=0f;
-			Quaternion newRotation=Quaternion.LookRotation(playerToMouse);
-			playerRigidbody.MoveRotation(newRotation);
-		}
-	}
+        if (h > 0)
+        {
+            rotationY.Set(1f, 0f, 0f);
+            Quaternion newRotation = Quaternion.LookRotation(rotationY);
+            playerRigidbody.MoveRotation(newRotation);
+        }
+        else if (h < 0)
+        {
+            rotationY.Set(-1f, 0f, 0f);
+            Quaternion newRotation = Quaternion.LookRotation(rotationY);
+            playerRigidbody.MoveRotation(newRotation);
+        }
+
+        if (v > 0)
+        {
+            rotationY.Set(0f, 0f, 1f);
+            Quaternion newRotation = Quaternion.LookRotation(rotationY);
+            playerRigidbody.MoveRotation(newRotation);
+        }
+        else if (v < 0)
+        {
+            rotationY.Set(0f, 0f, -1f);
+            Quaternion newRotation = Quaternion.LookRotation(rotationY);
+            playerRigidbody.MoveRotation(newRotation);
+        }
+
+    }
 
 	void Animating(float h,float v)
 	{
