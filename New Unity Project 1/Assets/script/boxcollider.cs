@@ -12,7 +12,7 @@ public class boxcollider : MonoBehaviour
     sidewallCollider p_x_flag;
     sidewallCollider p_z_flag;
     float len = 1;
-    float moveMent = 0.5f;
+    float moveMent = 1.5f;
     // Use this for initialization
     void Start()
     {
