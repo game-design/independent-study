@@ -13,6 +13,7 @@ public class winCondition : MonoBehaviour {
     AudioSource win;
     public static int step;
     Animation final;
+    bool final_play;
 	// Use this for initialization
 	void Awake () {
         current_time = 0;
@@ -20,22 +21,13 @@ public class winCondition : MonoBehaviour {
         win = GetComponent<AudioSource>();
         step = 0;
         final = GetComponent<Animation>();
+        final_play = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
         gameover = true;
-        for (int i = 0; i < 4; i++)
-        {
-            RaycastHit up_hit;
-            Debug.DrawRay(targets[i].transform.position, Vector3.up, Color.red);
-            if (!Physics.Raycast(targets[i].transform.position, Vector3.up, out up_hit, 1))//not hit
-            {
-                gameover = false;
-                break;
-            }
-        }
-
+        check_hit();
 
         if (!gameover)
         {
@@ -47,15 +39,43 @@ public class winCondition : MonoBehaviour {
         else
         {
             StartCoroutine("load_level");
-            StartCoroutine("Final_animation");
             score.text = "Step: " + step.ToString() + " Time: "+ timer.text;
             if (!win.isPlaying)
             {
                 win.Play();
             }
+            if (!final_play)
+            {
+                final.Play();
+                final_play = true;
+            }
             
         }
     }
+
+    void check_hit()
+    {
+        RaycastHit[] up_hit=new RaycastHit[4];
+        int i;
+        for (i = 0; i < 4; i++)
+        {
+            Debug.DrawRay(targets[i].transform.position, Vector3.up, Color.red);
+            if (!Physics.Raycast(targets[i].transform.position, Vector3.up, out up_hit[i], 3))//not hit
+            {
+                gameover = false;
+            }
+            else
+            {
+                Debug.Log(i+" "+up_hit[i].collider.gameObject.name);
+                if (up_hit[i].collider.gameObject.name == "Quad")
+                    gameover = false;
+            }
+            
+        }
+
+
+    }
+
 
 
     IEnumerator load_level()
@@ -63,12 +83,7 @@ public class winCondition : MonoBehaviour {
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("box_0");
     }
-    IEnumerator Final_animation()
-    {
-        yield return null;
-        final.Play();
-        
-    }
+    
 
 
 }
