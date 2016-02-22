@@ -1,19 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class winCondition : MonoBehaviour {
-    Text timer;
+    public Text timer;
+    public Text score;
     float current_time;
     bool gameover;
     int size=4;
     public GameObject[] targets=new GameObject[4];
-
+    AudioSource win;
+    public static int step;
+    Animation final;
 	// Use this for initialization
 	void Awake () {
-        timer = GetComponentInChildren<Text>();
         current_time = 0;
         gameover = false;
+        win = GetComponent<AudioSource>();
+        step = 0;
+        final = GetComponent<Animation>();
     }
 	
 	// Update is called once per frame
@@ -31,8 +37,6 @@ public class winCondition : MonoBehaviour {
         }
 
 
-
-
         if (!gameover)
         {
             current_time += Time.deltaTime;
@@ -40,5 +44,31 @@ public class winCondition : MonoBehaviour {
             int seconds = Mathf.FloorToInt(current_time - minutes * 60);
             timer.text = string.Format("{0:0}:{1:00}", minutes, seconds);
         }
+        else
+        {
+            StartCoroutine("load_level");
+            StartCoroutine("Final_animation");
+            score.text = "Step: " + step.ToString() + " Time: "+ timer.text;
+            if (!win.isPlaying)
+            {
+                win.Play();
+            }
+            
+        }
     }
+
+
+    IEnumerator load_level()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("box_0");
+    }
+    IEnumerator Final_animation()
+    {
+        yield return null;
+        final.Play();
+        
+    }
+
+
 }

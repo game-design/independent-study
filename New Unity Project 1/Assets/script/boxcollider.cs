@@ -13,13 +13,17 @@ public class boxcollider : MonoBehaviour
     sidewallCollider p_z_flag;
     float len = 1;
     float moveMent = 1.5f;
+
+    AudioSource move;
+
     // Use this for initialization
     void Start()
     {
         n_x_flag = n_x.GetComponent<sidewallCollider>();
         n_z_flag = n_z.GetComponent<sidewallCollider>();
         p_x_flag = p_x.GetComponent<sidewallCollider>();
-        p_z_flag = p_z.GetComponent<sidewallCollider>();   
+        p_z_flag = p_z.GetComponent<sidewallCollider>();
+        move = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,6 +46,9 @@ public class boxcollider : MonoBehaviour
                 Vector3 pos = transform.position;
                 Vector3 newPosition = new Vector3(pos.x, pos.y, pos.z - moveMent);
                 transform.position = newPosition;
+                winCondition.step++;
+                if (!move.isPlaying)
+                    move.Play();
             }
         }
 
@@ -53,6 +60,9 @@ public class boxcollider : MonoBehaviour
                 Vector3 pos = transform.position;
                 Vector3 newPosition = new Vector3(pos.x, pos.y, pos.z + moveMent);
                 transform.position = newPosition;
+                winCondition.step++;
+                if (!move.isPlaying)
+                    move.Play();
             }
         }
 
@@ -64,6 +74,9 @@ public class boxcollider : MonoBehaviour
                 Vector3 pos = transform.position;
                 Vector3 newPosition = new Vector3(pos.x- moveMent, pos.y, pos.z);
                 transform.position = newPosition;
+                winCondition.step++;
+                if (!move.isPlaying)
+                    move.Play();
             }
         }
         if (n_x_flag.triggered == 1)
@@ -74,6 +87,9 @@ public class boxcollider : MonoBehaviour
                 Vector3 pos = transform.position;
                 Vector3 newPosition = new Vector3(pos.x+ moveMent, pos.y, pos.z);
                 transform.position = newPosition;
+                winCondition.step++;
+                if (!move.isPlaying)
+                    move.Play();
             }
         }
     }

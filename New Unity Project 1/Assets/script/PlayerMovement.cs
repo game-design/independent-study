@@ -8,13 +8,11 @@ public class PlayerMovement : MonoBehaviour
 	Rigidbody playerRigidbody;
 	int floorMask;
 	float camRayLength=100;
-
 	void Awake()
 	{
 		floorMask=LayerMask.GetMask("Floor");
 		anim = GetComponent<Animation> ();
 		playerRigidbody = GetComponent<Rigidbody> ();
-        
 	}
 
 	void FixedUpdate()
@@ -28,21 +26,11 @@ public class PlayerMovement : MonoBehaviour
 
 	void Move(float h,float v)
 	{
-		movement.Set (h, 0f, v);
+
+        movement.Set (h, 0f, v);
 		movement = movement.normalized * speed * Time.deltaTime;
 		playerRigidbody.MovePosition (transform.position + movement);
         
-
-
-        /*
-        // keep character stand~ No x,z rotation.
-        float CurRoaX = transform.rotation.x;
-        float CurRoaZ = transform.rotation.z;
-        float CurRoaY = transform.rotation.y;
-        float CurRoaW = transform.rotation.w;
-        
-        transform.rotation.Set(-CurRoaX/2, CurRoaY, -CurRoaZ/2, CurRoaW);
-        */
     }
 
 	void Turning(float h,float v)
