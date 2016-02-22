@@ -67,9 +67,9 @@
     <Compile Include="Assets\script\CameraFollow.cs" />
     <Compile Include="Assets\script\PlayerMovement.cs" />
     <Compile Include="Assets\script\boxcollider.cs" />
+    <Compile Include="Assets\script\popupMissionIntro.cs" />
     <Compile Include="Assets\script\sidewallCollider.cs" />
     <Compile Include="Assets\script\winCondition.cs" />
-    <Compile Include="Assets\trigger4Mission.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cha_Data\Shader\WrapLambert.shader" />
