@@ -63,13 +63,14 @@ public class winCondition : MonoBehaviour {
             if (!Physics.Raycast(targets[i].transform.position, Vector3.up, out up_hit[i], 3))//not hit
             {
                 gameover = false;
+                if (targets[i].GetComponent<ParticleSystem>().isStopped)
+                    targets[i].GetComponent<ParticleSystem>().Play();
             }
             else
             {
-                Debug.Log(i+" "+up_hit[i].collider.gameObject.name);
-                if (up_hit[i].collider.gameObject.name == "Quad")
-                    gameover = false;
+                targets[i].GetComponent<ParticleSystem>().Stop();
             }
+            
             
         }
 
