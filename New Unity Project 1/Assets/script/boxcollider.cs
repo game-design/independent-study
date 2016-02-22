@@ -47,7 +47,6 @@ public class boxcollider : MonoBehaviour
                 Vector3 newPosition = new Vector3(pos.x, pos.y, pos.z - moveMent);
                 transform.position = newPosition;
                 winCondition.step++;
-                if (!move.isPlaying)
                     move.Play();
             }
         }
@@ -61,7 +60,6 @@ public class boxcollider : MonoBehaviour
                 Vector3 newPosition = new Vector3(pos.x, pos.y, pos.z + moveMent);
                 transform.position = newPosition;
                 winCondition.step++;
-                if (!move.isPlaying)
                     move.Play();
             }
         }
@@ -75,7 +73,6 @@ public class boxcollider : MonoBehaviour
                 Vector3 newPosition = new Vector3(pos.x- moveMent, pos.y, pos.z);
                 transform.position = newPosition;
                 winCondition.step++;
-                if (!move.isPlaying)
                     move.Play();
             }
         }
@@ -88,8 +85,7 @@ public class boxcollider : MonoBehaviour
                 Vector3 newPosition = new Vector3(pos.x+ moveMent, pos.y, pos.z);
                 transform.position = newPosition;
                 winCondition.step++;
-                if (!move.isPlaying)
-                    move.Play();
+                move.Play();
             }
         }
     }
