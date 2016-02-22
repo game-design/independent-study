@@ -19,9 +19,12 @@ public class PlayerMovement : MonoBehaviour
 	{
 		float h=Input.GetAxisRaw("Horizontal");
 		float v=Input.GetAxisRaw("Vertical");
-		Move (h, v);
-		Turning (h,v);
-		Animating (h, v);
+        if (!winCondition.gameover)
+        {
+            Move(h, v);
+            Turning(h, v);
+            Animating(h, v);
+        }
 	}
 
 	void Move(float h,float v)
