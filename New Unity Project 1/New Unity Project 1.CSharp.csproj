@@ -68,6 +68,7 @@
     <Compile Include="Assets\script\PlayerMovement.cs" />
     <Compile Include="Assets\script\boxcollider.cs" />
     <Compile Include="Assets\script\sidewallCollider.cs" />
+    <Compile Include="Assets\script\winCondition.cs" />
     <Compile Include="Assets\trigger4Mission.cs" />
   </ItemGroup>
   <ItemGroup>
