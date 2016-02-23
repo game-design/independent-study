@@ -23,7 +23,7 @@ public class triggerM1Left : MonoBehaviour {
 
     void OnGUI()
     {
-        if (showWin == true)
+        if (showWin == true && !missionComfirm)
         {
             windowRect = GUI.Window(0, windowRect, WindowContain, " Are you sure about doing Left? ");
         }
@@ -34,6 +34,8 @@ public class triggerM1Left : MonoBehaviour {
         {
             missionComfirm = true;
             showWin = false;
+            GameObject.Find("wallExitM1L").GetComponent<Collider>().isTrigger = false;
+            GameObject.Find("wallEnterM1L").GetComponent<Collider>().isTrigger = true;
         }
     }
 
