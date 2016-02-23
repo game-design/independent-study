@@ -4,7 +4,7 @@ using System.Collections;
 public class popupMissionIntro : MonoBehaviour {
 
 
-    public bool windowSwitch = false;
+    bool showWin = false;
     private Rect windowRect = new Rect(200, 20, 200, 100);
 
 
@@ -21,7 +21,7 @@ public class popupMissionIntro : MonoBehaviour {
 
     void OnGUI()
     {
-        if (windowSwitch == true)
+        if (showWin == true)
         {
             windowRect = GUI.Window(0, windowRect, WindowContain, "  Left is AA \n Right is BB");
         }
@@ -36,12 +36,12 @@ public class popupMissionIntro : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        windowSwitch = true;
+        showWin = true;
         //Debug.Log(other.gameObject.transform.position.x);
     }
     void OnTriggerExit(Collider other)
     {
-        windowSwitch = false;
+        showWin = false;
         //Debug.Log(other.gameObject.transform.position.x);
     }
 
