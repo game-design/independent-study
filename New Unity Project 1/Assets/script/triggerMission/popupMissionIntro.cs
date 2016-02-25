@@ -5,7 +5,7 @@ public class popupMissionIntro : MonoBehaviour {
 
 
     bool showWin = false;
-    private Rect windowRect = new Rect(200, 20, 200, 100);
+    private Rect windowRect = new Rect(200, 200, 150, 100);
 
 
     // Use this for initialization
@@ -23,7 +23,7 @@ public class popupMissionIntro : MonoBehaviour {
     {
         if (showWin == true)
         {
-            windowRect = GUI.Window(0, windowRect, WindowContain, "  Left is AA \n Right is BB");
+            windowRect = GUI.Window(0, windowRect, WindowContain, " Left is AA \n Right is BB ");
         }
     }
     public void WindowContain(int windowID)

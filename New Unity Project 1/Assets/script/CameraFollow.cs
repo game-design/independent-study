@@ -16,4 +16,18 @@ public class CameraFollow : MonoBehaviour {
 		transform.position=Vector3.Lerp(transform.position,targetCamPos,smoothing*Time.deltaTime);
 	}
 
+    void zoomOut()
+    {
+        offset.x = offset.x * 2;
+        offset.y = offset.y * 2;
+        offset.z = offset.z * 2;
+    }
+
+    void zoomIn()
+    {
+        offset.x = offset.x / 2;
+        offset.y = offset.y / 2;
+        offset.z = offset.z / 2;
+    }
+
 }
