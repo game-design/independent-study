@@ -48,9 +48,14 @@
      <Compile Include="Assets\Cha_Data\Script\ScreenShot.cs" />
      <Compile Include="Assets\Models\School\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\script\CameraFollow.cs" />
+     <Compile Include="Assets\script\Dodge\fireBallMovement.cs" />
+     <Compile Include="Assets\script\Dodge\wall.cs" />
      <Compile Include="Assets\script\PlayerMovement.cs" />
      <Compile Include="Assets\script\boxcollider.cs" />
      <Compile Include="Assets\script\sidewallCollider.cs" />
+     <Compile Include="Assets\script\triggerMission\popupMissionIntro.cs" />
+     <Compile Include="Assets\script\triggerMission\triggerM1Left.cs" />
+     <Compile Include="Assets\script\triggerMission\triggerM1Right.cs" />
      <Compile Include="Assets\script\winCondition.cs" />
      <None Include="Assets\Cha_Data\Shader\WrapLambert.shader" />
      <None Include="Assets\Models\Modern Interior Pack\Shaders\Glass.shader" />

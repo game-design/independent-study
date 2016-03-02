@@ -55,12 +55,12 @@ public class winCondition : MonoBehaviour {
 
     void check_hit()
     {
-        RaycastHit[] up_hit=new RaycastHit[4];
+        RaycastHit up_hit=new RaycastHit();
         int i;
         for (i = 0; i < 4; i++)
         {
             Debug.DrawRay(targets[i].transform.position, Vector3.up, Color.red);
-            if (!Physics.Raycast(targets[i].transform.position, Vector3.up, out up_hit[i], 3))//not hit
+            if (!Physics.Raycast(targets[i].transform.position, Vector3.up, out up_hit, 3)||up_hit.collider.gameObject.tag != "box")//not hit
             {
                 gameover = false;
                 if (targets[i].GetComponent<ParticleSystem>().isStopped)
@@ -82,7 +82,7 @@ public class winCondition : MonoBehaviour {
     IEnumerator load_level()
     {
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("box_0");
+        SceneManager.LoadScene("box_1");
     }
     
 
