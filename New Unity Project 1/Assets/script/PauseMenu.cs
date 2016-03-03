@@ -40,6 +40,10 @@ public class PauseMenu : MonoBehaviour {
             {
                 SceneManager.LoadScene(initial_level);
             }
+            if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 3 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESET"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
 
