@@ -14,6 +14,10 @@ public class winCondition : MonoBehaviour {
     public static int step;
     Animation final;
     bool final_play;
+
+    public string next_level;
+
+
 	// Use this for initialization
 	void Awake () {
         current_time = 0;
@@ -82,7 +86,7 @@ public class winCondition : MonoBehaviour {
     IEnumerator load_level()
     {
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("box_1");
+        SceneManager.LoadScene(next_level);
     }
     
 
