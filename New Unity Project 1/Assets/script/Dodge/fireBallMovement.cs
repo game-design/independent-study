@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+//using System;
 
 public class fireBallMovement : MonoBehaviour {
 
@@ -20,7 +21,7 @@ public class fireBallMovement : MonoBehaviour {
 
         if(this.name == "fireBall_2")
         {
-            this.transform.Translate(new Vector3(0, velocity2 * Time.deltaTime, 0));
+            this.transform.Translate(new Vector3(0, 0, -velocity2 * Time.deltaTime));
         }
 	}
 
@@ -30,16 +31,17 @@ public class fireBallMovement : MonoBehaviour {
         if(other.gameObject.name == "Cha_Knight")
         {
             GameObject.Find("GameLogic").GetComponent<PauseMenu>().isDead = true;
-            //Time.timeScale = 0;
         }
 
         if(other.gameObject.name == "airWall1")
         {
+            this.velocity = Random.Range(10, 20);
             this.transform.Translate(new Vector3(0, 0, 110));
         }
 
         if (other.gameObject.name == "airWall2")
         {
+            this.velocity = Random.Range(10, 30);
             this.transform.Translate(new Vector3(0, -90, 0));
         }
 
