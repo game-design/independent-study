@@ -67,6 +67,7 @@
     <Compile Include="Assets\script\CameraFollow.cs" />
     <Compile Include="Assets\script\Dodge\fireBallMovement.cs" />
     <Compile Include="Assets\script\Dodge\wall.cs" />
+    <Compile Include="Assets\script\PauseMenu.cs" />
     <Compile Include="Assets\script\PlayerMovement.cs" />
     <Compile Include="Assets\script\boxcollider.cs" />
     <Compile Include="Assets\script\sidewallCollider.cs" />
