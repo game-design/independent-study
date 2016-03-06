@@ -40,17 +40,14 @@ public class PauseMenu : MonoBehaviour {
             }
             if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 2 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESTART"))
             {
-                //Time.timeScale = 1;
                 paused = false;
                 SceneManager.LoadScene(initial_level);
             }
             if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 3 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESET"))
             {
-                //Time.timeScale = 1;
                 paused = false;
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                //Application.LoadLevel(Application.loadedLevel);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }
