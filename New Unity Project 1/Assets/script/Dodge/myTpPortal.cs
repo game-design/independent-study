@@ -36,10 +36,6 @@ public class myTpPortal : MonoBehaviour {
             missionComfirm = true;
             showWin = false;
             SceneManager.LoadScene("Initial Room");
-            //GameObject.Find("wallExitM1L").GetComponent<Collider>().isTrigger = false;
-            //GameObject.Find("wallEnterM1L").GetComponent<Collider>().isTrigger = true;
-            //GameObject.FindGameObjectWithTag("MainCamera").SendMessage("zoomIn");
-
         }
     }
 

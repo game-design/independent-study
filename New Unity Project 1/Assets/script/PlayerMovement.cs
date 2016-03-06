@@ -8,7 +8,10 @@ public class PlayerMovement : MonoBehaviour
 	Rigidbody playerRigidbody;
 	int floorMask;
 	float camRayLength=100;
-	void Awake()
+    bool myClicCounter = false;
+
+
+    void Awake()
 	{
 		floorMask=LayerMask.GetMask("Floor");
 		anim = GetComponent<Animation> ();
@@ -25,9 +28,38 @@ public class PlayerMovement : MonoBehaviour
             Turning(h, v);
             Animating(h, v);
         }
-	}
 
-	void Move(float h,float v)
+        // Control zoom of view
+        if (Input.GetKey(KeyCode.Space) && !myClicCounter)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").SendMessage("zoomOut");
+            myClicCounter = true;
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.Space) && myClicCounter)
+        {
+            return;
+        }
+
+        if (!Input.GetKey(KeyCode.Space) && myClicCounter)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").SendMessage("zoomIn");
+            myClicCounter = false;
+            return;
+        }
+
+
+    }
+
+    void update()
+    {
+
+
+    }
+
+
+    void Move(float h,float v)
 	{
 
         movement.Set (h, 0f, v);

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class fireBallMovement : MonoBehaviour {
 
-    float velocity = 10f;
+    float velocity = 20f;
     float velocity2 = 20f;
     // Use this for initialization
     void Start () {
@@ -13,12 +13,12 @@ public class fireBallMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (this.name == "fireBall")
+        if (this.name == "Fireball_1")
         {
-            this.transform.Translate(new Vector3(0, velocity * Time.deltaTime, 0));
+            this.transform.Translate(new Vector3(0, 0, -velocity * Time.deltaTime));
         }
 
-        if(this.name == "fireBall2")
+        if(this.name == "fireBall_2")
         {
             this.transform.Translate(new Vector3(0, velocity2 * Time.deltaTime, 0));
         }
@@ -40,7 +40,6 @@ public class fireBallMovement : MonoBehaviour {
 
         if (other.gameObject.name == "airWall2")
         {
-            Debug.Log("3");
             this.transform.Translate(new Vector3(0, -90, 0));
         }
 
