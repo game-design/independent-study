@@ -29,14 +29,12 @@ public class fireBallMovement : MonoBehaviour {
         
         if(other.gameObject.name == "Cha_Knight")
         {
-            Debug.Log("1");
             Time.timeScale = 0;
             //Application.Quit();
         }
 
         if(other.gameObject.name == "airWall1")
         {
-            Debug.Log("2");
             this.transform.Translate(new Vector3(0, -120, 0));
         }
 

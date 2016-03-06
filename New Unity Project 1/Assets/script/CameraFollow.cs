@@ -18,16 +18,16 @@ public class CameraFollow : MonoBehaviour {
 
     void zoomOut()
     {
-        offset.x = offset.x * 2;
-        offset.y = offset.y * 2;
-        offset.z = offset.z * 2;
+        offset.x = offset.x * 1.5f;
+        offset.y = offset.y * 1.5f;
+        offset.z = offset.z * 1.5f;
     }
 
     void zoomIn()
     {
-        offset.x = offset.x / 2;
-        offset.y = offset.y / 2;
-        offset.z = offset.z / 2;
+        offset.x = offset.x / 1.5f;
+        offset.y = offset.y / 1.5f;
+        offset.z = offset.z / 1.5f;
     }
 
 }
