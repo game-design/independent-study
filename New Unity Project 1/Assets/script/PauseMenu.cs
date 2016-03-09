@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
-    //public static int
+    public static int currentPosition = 0;
     public bool isDead = false;
     public string levelToLoad;
     public bool paused = false;

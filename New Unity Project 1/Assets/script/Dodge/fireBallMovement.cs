@@ -41,8 +41,8 @@ public class fireBallMovement : MonoBehaviour {
 
         if (other.gameObject.name == "airWall2")
         {
-            this.velocity = Random.Range(10, 30);
-            this.transform.Translate(new Vector3(0, -90, 0));
+            this.velocity = Random.Range(19, 21);
+            this.transform.Translate(new Vector3(0, 0, 85));
         }
 
 
