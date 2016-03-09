@@ -82,8 +82,8 @@
     <Compile Include="Assets\script\PlayerMovement.cs" />
     <Compile Include="Assets\script\boxcollider.cs" />
     <Compile Include="Assets\script\sidewallCollider.cs" />
+    <Compile Include="Assets\script\triggerMission\missionTP.cs" />
     <Compile Include="Assets\script\triggerMission\popupMissionIntro.cs" />
-    <Compile Include="Assets\script\triggerMission\triggerM1Left.cs" />
     <Compile Include="Assets\script\triggerMission\triggerM1Right.cs" />
     <Compile Include="Assets\script\winCondition.cs" />
   </ItemGroup>

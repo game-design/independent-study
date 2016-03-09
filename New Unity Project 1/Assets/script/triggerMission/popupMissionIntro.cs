@@ -23,7 +23,7 @@ public class popupMissionIntro : MonoBehaviour {
     {
         if (showWin == true)
         {
-            windowRect = GUI.Window(0, windowRect, WindowContain, " Left is AA \n Right is BB ");
+            windowRect = GUI.Window(0, windowRect, WindowContain, " Left is DODGEBALL \n Right is BOXING ");
         }
     }
     public void WindowContain(int windowID)
