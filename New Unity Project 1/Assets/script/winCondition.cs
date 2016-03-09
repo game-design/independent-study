@@ -68,6 +68,7 @@ public class winCondition : MonoBehaviour {
             {
                 gameover = false;
                 if (targets[i].GetComponent<ParticleSystem>().isStopped)
+                    //Debug.Log("isStoped!");
                     targets[i].GetComponent<ParticleSystem>().Play();
             }
             else

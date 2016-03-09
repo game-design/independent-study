@@ -4,8 +4,8 @@ using System.Collections;
 
 public class fireBallMovement : MonoBehaviour {
 
-    float velocity = 15f;
-    float velocity2 = 20f;
+    public float velocity = 20f;
+    public float velocity2 = 20f;
     // Use this for initialization
     void Start () {
 	
@@ -35,7 +35,7 @@ public class fireBallMovement : MonoBehaviour {
 
         if(other.gameObject.name == "airWall1")
         {
-            this.velocity = Random.Range(10, 20);
+            this.velocity = Random.Range(19, 21);
             this.transform.Translate(new Vector3(0, 0, 110));
         }
 
