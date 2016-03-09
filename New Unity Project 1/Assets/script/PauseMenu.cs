@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 
     public static int currentPosition = 0;
-    public bool isDead = false;
     public string levelToLoad;
     public bool paused = false;
     public string initial_level;
@@ -14,6 +13,26 @@ public class PauseMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Time.timeScale = 1;
+        if (SceneManager.GetActiveScene().name == "Initial Room")
+        {
+            switch (PauseMenu.currentPosition){ 
+                case 0:
+
+                    break;
+                case 1:
+                    GameObject.FindGameObjectWithTag("Player").transform.Translate(5, 0, 65);
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(-45, 0, 0));
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Translate(5, 0, 65);
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(45, 0, 0));
+                    break;
+                case 2:
+                    GameObject.FindGameObjectWithTag("Player").transform.Translate(5, 0, 175);
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(-45, 0, 0));
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Translate(5, 0, 175);
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(45, 0, 0));
+                    break;
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -51,12 +70,6 @@ public class PauseMenu : MonoBehaviour {
                 //Application.LoadLevel(Application.loadedLevel);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
-        }
-
-        if (isDead)
-        {
-            paused = true;
-            isDead = false;
         }
     }
 

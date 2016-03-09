@@ -30,19 +30,19 @@ public class fireBallMovement : MonoBehaviour {
         
         if(other.gameObject.name == "Cha_Knight")
         {
-            GameObject.Find("GameLogic").GetComponent<PauseMenu>().isDead = true;
+            //GameObject.Find("GameLogic").GetComponent<PauseMenu>().isDead = true;
         }
 
         if(other.gameObject.name == "airWall1")
         {
             this.velocity = Random.Range(19, 21);
-            this.transform.Translate(new Vector3(0, 0, 110));
+            this.transform.Translate(new Vector3(0, 0, 105));
         }
 
         if (other.gameObject.name == "airWall2")
         {
             this.velocity = Random.Range(19, 21);
-            this.transform.Translate(new Vector3(0, 0, 85));
+            this.transform.Translate(new Vector3(0, 0, 80));
         }
 
 
