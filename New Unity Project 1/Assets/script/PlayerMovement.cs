@@ -22,12 +22,11 @@ public class PlayerMovement : MonoBehaviour
 	{
 		float h=Input.GetAxisRaw("Horizontal");
 		float v=Input.GetAxisRaw("Vertical");
-        if (!winCondition.gameover)
-        {
-            Move(h, v);
-            Turning(h, v);
-            Animating(h, v);
-        }
+        
+        Move(h, v);
+        Turning(h, v);
+        Animating(h, v);
+        
 
         // Control zoom of view
         if (Input.GetKey(KeyCode.Space) && !myClicCounter)

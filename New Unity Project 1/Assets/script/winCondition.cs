@@ -7,7 +7,7 @@ public class winCondition : MonoBehaviour {
     public Text timer;
     public Text score;
     float current_time;
-    public static bool gameover;
+    public bool gameover;
     int size=4;
     public GameObject[] targets=new GameObject[4];
     AudioSource win;
@@ -15,11 +15,11 @@ public class winCondition : MonoBehaviour {
     Animation final;
     bool final_play;
 
-    public string next_level;
+    public int currentLevel;
 
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         current_time = 0;
         gameover = false;
         win = GetComponent<AudioSource>();
@@ -86,7 +86,8 @@ public class winCondition : MonoBehaviour {
     IEnumerator load_level()
     {
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(next_level);
+        PauseMenu.currentPosition = currentLevel;
+        SceneManager.LoadScene("Initial Room");
     }
     
 
