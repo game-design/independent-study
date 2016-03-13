@@ -27,7 +27,7 @@ public class missionTP : MonoBehaviour {
     {
         if (showWin == true)// && !missionComfirm)
         {
-            windowRect = GUI.Window(0, windowRect, WindowContain, "Are you sure about\ndoing " + targetLevel);
+            windowRect = GUI.Window(0, windowRect, WindowContain, "Are you sure about\ngoing " + targetLevel);
         }
     }
     public void WindowContain(int windowID)

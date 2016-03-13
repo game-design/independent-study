@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 //using System;
 
 public class fireBallMovement : MonoBehaviour {
@@ -30,7 +31,8 @@ public class fireBallMovement : MonoBehaviour {
         
         if(other.gameObject.name == "Cha_Knight")
         {
-            //GameObject.Find("GameLogic").GetComponent<PauseMenu>().isDead = true;
+            GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(-89, 0, -224);
+            GameObject.Find("HUD").SendMessage("reStart");
         }
 
         if(other.gameObject.name == "airWall1")

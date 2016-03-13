@@ -7,7 +7,7 @@ public class myTpPortal : MonoBehaviour {
     bool showWin = false;
     bool missionComfirm = false;
     private Rect windowRect = new Rect(200, 200, 150, 100);
-
+    public char curSituation;
 
     // Use this for initialization
     void Start()
@@ -24,16 +24,21 @@ public class myTpPortal : MonoBehaviour {
 
     void OnGUI()
     {
-        if (showWin == true && !missionComfirm)
+        if (showWin == true)
         {
-            windowRect = GUI.Window(0, windowRect, WindowContain, "Are you sure about\ngoing back?");
+            windowRect = GUI.Window(0, windowRect, WindowContain, "Are you sure about\ngoing initial room?");
         }
     }
     public void WindowContain(int windowID)
     {
         if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
         {
-            missionComfirm = true;
+            if(curSituation == 'b')
+            {
+                PauseMenu.currentPosition = 2;
+                showWin = false;
+                winControl_Dodge.gameover = true;
+            }
             showWin = false;
             SceneManager.LoadScene("Initial Room");
         }
@@ -48,8 +53,9 @@ public class myTpPortal : MonoBehaviour {
     }
     void OnTriggerExit(Collider other)
     {
-        if(other.name == "Cha_Knight"){ showWin = false;
+        if(other.name == "Cha_Knight"){
+        showWin = false;
         GameObject.FindGameObjectWithTag("MainCamera").SendMessage("zoomIn");
-        //Debug.Log(other.gameObject.transform.position.x);
-    } }
+    }
+    }
 }
