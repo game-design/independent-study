@@ -8,7 +8,7 @@ public class winControl_Dodge : MonoBehaviour
     public Text timer;
     public Text score;
     float current_time;
-    public bool gameover;
+    public static bool gameover;
     AudioSource win;
     public static int step;
     Animation final;

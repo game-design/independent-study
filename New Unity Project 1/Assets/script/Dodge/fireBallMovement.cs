@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class fireBallMovement : MonoBehaviour {
 
     public float velocity = 20f;
-    public float velocity2 = 20f;
+    public float velocity2 = 15f;
     // Use this for initialization
     void Start () {
 	
@@ -22,7 +22,7 @@ public class fireBallMovement : MonoBehaviour {
 
         if(this.name == "fireBall_2")
         {
-            this.transform.Translate(new Vector3(0, 0, -velocity2 * Time.deltaTime));
+            this.transform.Translate(new Vector3(0 ,0 , -velocity2 * Time.deltaTime));
         }
 	}
 
@@ -47,6 +47,23 @@ public class fireBallMovement : MonoBehaviour {
             this.transform.Translate(new Vector3(0, 0, 80));
         }
 
+        if (other.gameObject.name == "airWall3")
+        {
+            this.velocity = Random.Range(19, 21);
+            this.transform.Translate(new Vector3(0, 0, 125));
+        }
+
+        if (other.gameObject.name == "airWall4")
+        {
+            this.velocity = Random.Range(19, 21);
+            this.transform.Translate(new Vector3(0, 0, 105));
+        }
+
+        if (other.gameObject.name == "airWall5")
+        {
+            this.velocity2 = Random.Range(12, 18);
+            this.transform.Translate(new Vector3(0, 0, 75));
+        }
 
     }
 }

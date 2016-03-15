@@ -33,6 +33,7 @@ public class myTpPortal : MonoBehaviour {
     {
         if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
         {
+            //level 1
             if(curSituation == 'b')
             {
                 PauseMenu.currentPosition = 2;
@@ -41,6 +42,17 @@ public class myTpPortal : MonoBehaviour {
             }
             showWin = false;
             SceneManager.LoadScene("Initial Room");
+
+            // level 2
+            if (curSituation == 'd')
+            {
+                PauseMenu.currentPosition = 2;
+                showWin = false;
+                winControl_Dodge.gameover = true;
+            }
+            showWin = false;
+            SceneManager.LoadScene("Initial Room");
+
         }
     }
 
