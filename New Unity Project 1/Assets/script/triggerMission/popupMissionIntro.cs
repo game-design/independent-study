@@ -18,28 +18,33 @@ public class popupMissionIntro : MonoBehaviour {
 
     void OnGUI()
     {
-        if (showWin == true)
+        if (showWin == true && this.name == "introMission1")
         {
             windowRect = GUI.Window(0, windowRect, WindowContain, " Left is DODGEBALL \n Right is BOXING ");
+        }
+        if (showWin == true && this.name == "introMission2")
+        {
+            windowRect = GUI.Window(0, windowRect, WindowContain, "Could you help me get my bag back ?\nYou can see it through right portal");
+            //玩家的x，z与NPC的y作为一个新的vector3
+            Transform playerT = GameObject.Find("Cha_Knight").transform;
+            Transform npc1T = GameObject.Find("NPC_1").transform;
+
+            Vector3 v = new Vector3(playerT.position.x, npc1T.position.y, playerT.position.z);
+            Quaternion rotation = Quaternion.LookRotation(v - npc1T.position);  //获取目标方向
+            npc1T.rotation = Quaternion.Slerp(npc1T.rotation, rotation, Time.deltaTime * 1f);  // 差值  趋向目标
         }
     }
     public void WindowContain(int windowID)
     {
-        /*if (GUI.Button(new Rect(70, 40, 100, 20), "关闭视窗"))
-        {
-            windowSwitch = false;
-        }*/
     }
 
     void OnTriggerEnter(Collider other)
     {
         showWin = true;
-        //Debug.Log(other.gameObject.transform.position.x);
     }
     void OnTriggerExit(Collider other)
     {
         showWin = false;
-        //Debug.Log(other.gameObject.transform.position.x);
     }
 
 }

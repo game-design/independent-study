@@ -45,14 +45,10 @@ public class missionTP : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         showWin = true;
-        //GameObject.FindGameObjectWithTag("MainCamera").SendMessage("zoomOut");
-        //Debug.Log(other.gameObject.transform.position.x);
     }
     void OnTriggerExit(Collider other)
     {
         showWin = false;
-        //GameObject.FindGameObjectWithTag("MainCamera").SendMessage("zoomIn");
-        //Debug.Log(other.gameObject.transform.position.x);
     }
     
     IEnumerator load_level()

@@ -15,6 +15,9 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1;
         if (SceneManager.GetActiveScene().name == "Initial Room")
         {
+            Transform playerT = GameObject.Find("Cha_Knight").transform;
+            Transform mCameraT = GameObject.Find("Main Camera").transform;
+
             switch (PauseMenu.currentPosition){ 
                 case 0:
 
@@ -32,10 +35,8 @@ public class PauseMenu : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(45, 0, 0));
                     break;
                 case 3:
-                    GameObject.FindGameObjectWithTag("Player").transform.Translate(5, 0, 175);
-                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(-45, 0, 0));
-                    GameObject.FindGameObjectWithTag("MainCamera").transform.Translate(5, 0, 175);
-                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(45, 0, 0));
+                    playerT.position = new Vector3(-118, 0, 24);
+                    mCameraT.position = new Vector3(-119,25,0);
                     break;
                 case 4:
                     GameObject.FindGameObjectWithTag("Player").transform.Translate(5, 0, 175);
@@ -71,15 +72,14 @@ public class PauseMenu : MonoBehaviour {
             {
                 paused = false;
             }
-            if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 2 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESTART"))
+            /*if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 2 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESTART"))
             {
                 paused = false;
                 SceneManager.LoadScene(initial_level);
-            }
+            }*/
             if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 3 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESET"))
             {
                 paused = false;
-                //Application.LoadLevel(Application.loadedLevel);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
