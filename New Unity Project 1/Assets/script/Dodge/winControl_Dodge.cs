@@ -31,7 +31,7 @@ public class winControl_Dodge : MonoBehaviour
 
     void reStart()
     {
-        current_time = 0;
+        //current_time = 0;
         gameover = false;
         //win = GetComponent<AudioSource>();
         step = 0;
@@ -53,7 +53,7 @@ public class winControl_Dodge : MonoBehaviour
         else
         {
             StartCoroutine("load_level");
-            score.text = "Step: " + step.ToString() + " Time: " + timer.text;
+            score.text = "Death: " + amountofDeath.ToString() + " Time: " + timer.text;
             if (!win.isPlaying)
             {
                 win.Play();

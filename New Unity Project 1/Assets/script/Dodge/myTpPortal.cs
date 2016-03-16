@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+// this is for all portal in dodgeball missions
 public class myTpPortal : MonoBehaviour {
 
     bool showWin = false;
@@ -41,18 +42,15 @@ public class myTpPortal : MonoBehaviour {
                 winControl_Dodge.gameover = true;
             }
             showWin = false;
-            SceneManager.LoadScene("Initial Room");
 
             // level 2
             if (curSituation == 'd')
             {
-                PauseMenu.currentPosition = 2;
+                PauseMenu.currentPosition = 4;
                 showWin = false;
                 winControl_Dodge.gameover = true;
             }
             showWin = false;
-            SceneManager.LoadScene("Initial Room");
-
         }
     }
 

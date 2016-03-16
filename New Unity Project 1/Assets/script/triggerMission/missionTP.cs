@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+// this is for portals in initial room
 public class missionTP : MonoBehaviour {
 
     bool showWin = false;
@@ -11,16 +12,9 @@ public class missionTP : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start()
-    {
-
-    }
-
+    void Start(){}
     // Update is called once per frame
-    void Update()
-    {
-
-    }
+    void Update(){}
 
 
     void OnGUI()
@@ -34,14 +28,17 @@ public class missionTP : MonoBehaviour {
     {
         if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
         {
-            PauseMenu.currentPosition = 1;
-            StartCoroutine("load_level");
-            //missionComfirm = true;
-            //showWin = false;
-            //GameObject.Find("wallExitM1L").GetComponent<Collider>().isTrigger = false;
-            //GameObject.Find("wallEnterM1L").GetComponent<Collider>().isTrigger = true;
-            //GameObject.FindGameObjectWithTag("MainCamera").SendMessage("zoomIn");
+            if (targetLevel.Equals("box_0") || targetLevel.Equals("dodgeBall_0"))
+            {
+                PauseMenu.currentPosition = 1;
+            }
 
+            if (targetLevel.Equals("box_1") || targetLevel.Equals("dodgeBall_1"))
+            {
+                PauseMenu.currentPosition = 3;
+            }
+
+            StartCoroutine("load_level");
         }
     }
 

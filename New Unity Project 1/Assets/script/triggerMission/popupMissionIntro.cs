@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//this is for mission introduction & general npc control
 public class popupMissionIntro : MonoBehaviour {
 
 
     bool showWin = false;
     private Rect windowRect = new Rect(200, 200, 150, 100);
-
-
     // Use this for initialization
     void Start () {
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 

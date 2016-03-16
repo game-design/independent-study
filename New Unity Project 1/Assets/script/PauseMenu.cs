@@ -31,6 +31,18 @@ public class PauseMenu : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("MainCamera").transform.Translate(5, 0, 175);
                     GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(45, 0, 0));
                     break;
+                case 3:
+                    GameObject.FindGameObjectWithTag("Player").transform.Translate(5, 0, 175);
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(-45, 0, 0));
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Translate(5, 0, 175);
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(45, 0, 0));
+                    break;
+                case 4:
+                    GameObject.FindGameObjectWithTag("Player").transform.Translate(5, 0, 175);
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(-45, 0, 0));
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Translate(5, 0, 175);
+                    GameObject.FindGameObjectWithTag("MainCamera").transform.Rotate(new Vector3(45, 0, 0));
+                    break;
             }
         }
     }
