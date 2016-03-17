@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 //using System;
@@ -68,7 +68,7 @@ public class fireBallMovement : MonoBehaviour {
         if (other.gameObject.name == "airWall6")
         {
             this.velocity2 = Random.Range(13, 17);
-            this.transform.Translate(new Vector3(0, 0, 105));
+            this.transform.Translate(new Vector3(0, 0, 75));
         }
 
     }
