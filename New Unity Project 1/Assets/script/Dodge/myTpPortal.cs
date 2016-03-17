@@ -34,23 +34,22 @@ public class myTpPortal : MonoBehaviour {
     {
         if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
         {
+            showWin = false;
             //level 1 dodgeball
-            if(curSituation == 'b')
+            if (curSituation == 'b')
             {
                 PauseMenu.currentPosition = 2;
-                showWin = false;
                 winControl_Dodge.gameover = true;
+                return;
             }
-            showWin = false;
-
             // level 2 dodgeball
             if (curSituation == 'd')
             {
                 PauseMenu.currentPosition = 4;
-                showWin = false;
                 winControl_Dodge.gameover = true;
+                return;
             }
-            showWin = false;
+            SceneManager.LoadScene("Initial Room");
         }
     }
 

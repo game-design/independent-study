@@ -20,11 +20,11 @@ public class popupMissionIntro : MonoBehaviour {
     {
         if (showWin == true && this.name == "introMission1")
         {
-            windowRect = GUI.Window(0, windowRect, WindowContain, " Left is DODGEBALL \n Right is BOXING ");
+            windowRect = GUI.Window(0, new Rect(200, 200, 150, 100), WindowContain, " Left is DODGEBALL \n Right is BOXING ");
         }
         if (showWin == true && this.name == "introMission2")
         {
-            windowRect = GUI.Window(0, windowRect, WindowContain, "Could you help me get my bag back ?\nYou can see it through right portal");
+            windowRect = GUI.Window(0, new Rect(200, 200, 300, 75), WindowContain, "Could you help me get my bag back ?\nYou can see it through right portal");
             //玩家的x，z与NPC的y作为一个新的vector3
             Transform playerT = GameObject.Find("Cha_Knight").transform;
             Transform npc1T = GameObject.Find("NPC_1").transform;

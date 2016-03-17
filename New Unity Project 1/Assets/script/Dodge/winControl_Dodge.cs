@@ -15,9 +15,6 @@ public class winControl_Dodge : MonoBehaviour
     bool final_play;
     int amountofDeath = 0;
 
-    public int currentLevel;
-
-
     // Use this for initialization
     void Awake()
     {
@@ -31,11 +28,8 @@ public class winControl_Dodge : MonoBehaviour
 
     void reStart()
     {
-        //current_time = 0;
         gameover = false;
-        //win = GetComponent<AudioSource>();
         step = 0;
-        //final = GetComponent<Animation>();
         final_play = false;
         amountofDeath++;
     }
@@ -70,8 +64,6 @@ public class winControl_Dodge : MonoBehaviour
 IEnumerator load_level()
     {
         yield return new WaitForSeconds(3f);
-        PauseMenu.currentPosition = currentLevel;
-        //GameObject.Find("GameLogic").GetComponent<PauseMenu>().
         SceneManager.LoadScene("Initial Room");
     }
 }
