@@ -7,7 +7,7 @@ public class winCondition : MonoBehaviour {
     public Text timer;
     public Text score;
     float current_time;
-    public bool gameover;
+    public static bool gameover;
     int size=4;
     public GameObject[] targets=new GameObject[4];
     AudioSource win;
@@ -42,7 +42,6 @@ public class winCondition : MonoBehaviour {
         }
         else
         {
-            StartCoroutine("load_level");
             score.text = "Step: " + step.ToString() + " Time: "+ timer.text;
             if (!win.isPlaying)
             {
@@ -52,6 +51,14 @@ public class winCondition : MonoBehaviour {
             {
                 final.Play();
                 final_play = true;
+            }
+            if (final_play)
+            {
+                PauseMenu.currentPosition = currentLevel;
+                if (teleporterForBox.ready_to_go)
+                {
+                    SceneManager.LoadScene("Initial Room");
+                }
             }
             
         }
@@ -80,16 +87,5 @@ public class winCondition : MonoBehaviour {
 
 
     }
-
-
-
-    IEnumerator load_level()
-    {
-        yield return new WaitForSeconds(5f);
-        PauseMenu.currentPosition = currentLevel;
-        SceneManager.LoadScene("Initial Room");
-    }
-    
-
 
 }
