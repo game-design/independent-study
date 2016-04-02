@@ -11,7 +11,7 @@ public class objWobble : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Mathf.Abs(this.transform.position.y) < 7.7 && Mathf.Abs(this.transform.position.y) > 2.7) {
+        if (Mathf.Abs(this.transform.position.y) < 6.7 && Mathf.Abs(this.transform.position.y) > 2.7) {
             this.transform.Translate(new Vector3(0,direction,0));
         }
         else
@@ -23,6 +23,6 @@ public class objWobble : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Destroy(this);
+        Destroy(GameObject.Find("Bag"));
     }
 }
