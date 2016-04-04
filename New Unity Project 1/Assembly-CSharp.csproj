@@ -64,6 +64,7 @@
      <Compile Include="Assets\script\PauseMenu.cs" />
      <Compile Include="Assets\script\PlayerMovement.cs" />
      <Compile Include="Assets\script\boxcollider.cs" />
+     <Compile Include="Assets\script\loggerrequest.cs" />
      <Compile Include="Assets\script\objWobble.cs" />
      <Compile Include="Assets\script\sidewallCollider.cs" />
      <Compile Include="Assets\script\teleporterForBox.cs" />
