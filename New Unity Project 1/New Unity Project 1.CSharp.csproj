@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cha_Data\Shader\WrapLambert.shader" />
+    <None Include="Assets\Medieval_Toon_Character\ReadMe.txt" />
     <None Include="Assets\Models\Modern Interior Pack\Shaders\Glass.shader" />
     <None Include="Assets\Particle System\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
     <None Include="Assets\Particle System\PyroParticles\Readme.txt" />
