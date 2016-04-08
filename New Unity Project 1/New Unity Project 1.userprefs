@@ -1,10 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\PauseMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Dodge\fireBallMovement.cs">
     <Files>
-      <File FileName="Assets\Medieval_Toon_Character\Source\Scripts\Character_Animations.js" Line="8" Column="4" />
-      <File FileName="Assets\script\triggerMission\popupMissionIntro.cs" Line="81" Column="6" />
-      <File FileName="Assets\script\PauseMenu.cs" Line="16" Column="3" />
+      <File FileName="Assets\script\Dodge\fireBallMovement.cs" Line="61" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

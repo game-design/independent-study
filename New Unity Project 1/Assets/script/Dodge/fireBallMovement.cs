@@ -7,13 +7,35 @@ public class fireBallMovement : MonoBehaviour {
 
     public float velocity = 20f;
     public float velocity2 = 15f;
-    // Use this for initialization
+	// from 1 to 10 to determine which part of Bezier
+	public int positionBezier;
+	Vector3 positionB0 = new Vector3 (-67, 3, -7);
+	Vector3 positionB1 = new Vector3 (-39, 3, -50);
+	Vector3 positionB2 = new Vector3  (-19, 3, -50);
+	Vector3 positionB3 = new Vector3 (10, 3, -10);
+	Vector3 basePositionB = new Vector3 (-61,-1,-142);
+
+	Vector3 positionB0_2 = new Vector3 (-29, 3, -11);
+	Vector3 positionB1_2 = new Vector3 (-10, 3, -42);
+	Vector3 positionB2_2 = new Vector3  (12, 3, -42);
+	Vector3 positionB3_2 = new Vector3 (32, 3, -11);
+	Vector3 basePositionB_2 = new Vector3 (-91,-1,-135);
+
+	Vector3 positionB0_3 = new Vector3 (-25, 3, -13);
+	Vector3 positionB1_3 = new Vector3 (-10, 3, -40);
+	Vector3 positionB2_3 = new Vector3  (12, 3, -40);
+	Vector3 positionB3_3 = new Vector3 (30, 3, -16);
+	Vector3 basePositionB_3 = new Vector3 (-91,-1,-120);
+	long timeBezier = System.DateTime.Now.Ticks;
+
+	// Use this for initialization
     void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 
         if (this.name == "fireBall_1")
         {
@@ -24,6 +46,30 @@ public class fireBallMovement : MonoBehaviour {
         {
             this.transform.Translate(new Vector3(0 ,0 , -velocity2 * Time.deltaTime));
         }
+
+		if (this.name == "fireBall_3") 
+		{
+			//Debug.Log (((System.DateTime.Now.Ticks - timeBezier)%10000000)/100000000);
+			this.transform.position = Bezier3(positionB0+basePositionB,positionB1+basePositionB,positionB2+basePositionB,positionB3+basePositionB,((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000)%100000000)/100000000f);			
+		}
+
+		if (this.name == "fireBall_4") 
+		{
+			//Debug.Log (((System.DateTime.Now.Ticks - timeBezier)%10000000)/100000000);
+			this.transform.position = Bezier3(positionB0_2+basePositionB_2,positionB1_2+basePositionB_2,positionB2_2+basePositionB_2,positionB3_2+basePositionB_2,((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000)%100000000)/100000000f);			
+		}
+
+		if (this.name == "fireBall_5") 
+		{
+			//Debug.Log (((System.DateTime.Now.Ticks - timeBezier)%10000000)/100000000);
+			this.transform.position = Bezier3(positionB0_3+basePositionB_3,positionB1_3+basePositionB_3,positionB2_3+basePositionB_3,positionB3_3+basePositionB_3,((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000)%100000000)/100000000f);			
+		}
+
+	}
+
+	Vector3 Bezier3(Vector3 s,Vector3 st,Vector3 et,Vector3 e,float t)
+	{
+		return (((-s + 3*(st-et) + e)* t + (3*(s+et) - 6*st))* t + 3*(st-s))* t + s;
 	}
 
     void OnTriggerEnter(Collider other)
@@ -70,6 +116,12 @@ public class fireBallMovement : MonoBehaviour {
             this.velocity2 = Random.Range(13, 17);
             this.transform.Translate(new Vector3(0, 0, 115));
         }
+
+		if (other.gameObject.name == "airWall7")
+		{
+			this.velocity2 = Random.Range(13, 17);
+			this.transform.Translate(new Vector3(0, 0, 80));
+		}
 
     }
 }
