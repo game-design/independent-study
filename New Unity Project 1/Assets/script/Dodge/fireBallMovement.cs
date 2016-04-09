@@ -50,7 +50,7 @@ public class fireBallMovement : MonoBehaviour {
 		if (this.name == "fireBall_3") 
 		{
 			//Debug.Log (((System.DateTime.Now.Ticks - timeBezier)%10000000)/100000000);
-			this.transform.position = Bezier3(positionB0+basePositionB,positionB1+basePositionB,positionB2+basePositionB,positionB3+basePositionB,((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000)%100000000)/100000000f);			
+			this.transform.position = Bezier3(positionB0+basePositionB,positionB1+basePositionB,positionB2+basePositionB,positionB3+basePositionB,((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000)%75000000)/75000000f);			
 		}
 
 		if (this.name == "fireBall_4") 
@@ -119,7 +119,7 @@ public class fireBallMovement : MonoBehaviour {
 
 		if (other.gameObject.name == "airWall7")
 		{
-			this.velocity2 = Random.Range(13, 17);
+			this.velocity2 = Random.Range(12, 15);
 			this.transform.Translate(new Vector3(0, 0, 80));
 		}
 
