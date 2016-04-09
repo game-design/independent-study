@@ -65,6 +65,7 @@
     <Compile Include="Assets\Campfire Pack\Script\SwitchView.cs" />
     <Compile Include="Assets\Cha_Data\Script\ScreenShot.cs" />
     <Compile Include="Assets\Models\Teleportation Pad\CustomTeleporter.cs" />
+    <Compile Include="Assets\PainterlyNature\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Particle System\PyroParticles\Demo\DemoScript.cs" />
     <Compile Include="Assets\Particle System\PyroParticles\Prefab\Script\FireBaseScript.cs" />
     <Compile Include="Assets\Particle System\PyroParticles\Prefab\Script\FireCollisionForwardScript.cs" />
@@ -96,6 +97,7 @@
     <None Include="Assets\Models\Medieval_Toon_Character\ReadMe.txt" />
     <None Include="Assets\Models\Modern Interior Pack\Shaders\Glass.shader" />
     <None Include="Assets\Models\Teleportation Pad\README.txt" />
+    <None Include="Assets\PainterlyNature\Standard Assets\Skyboxes\_skybox info.txt" />
     <None Include="Assets\Particle System\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
     <None Include="Assets\Particle System\PyroParticles\Readme.txt" />
   </ItemGroup>
