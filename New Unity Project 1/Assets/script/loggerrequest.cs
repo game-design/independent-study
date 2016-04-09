@@ -23,14 +23,18 @@ public class loggerrequest : MonoBehaviour {
     void Start () {
         Debug.Log("start");
         HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(base_url+ "gameplay/:8809");
-        string send_item = "{\"session\":{\"id\":\"test\",\"player\":\"test\",\"game\":\"cs8809_project\",\"version\":\"1.0\"},\"play_events\":[{\"time\":\"2015 - 02 - 17T22: 43:45 - 5:00\",\"event\":\"PowerUp.FireBall\",\"value\":\"1.0\",\"level\":\"1-1\",\"position\":\"(42,42)\"},{\"time\":\"2015-02-17T22:45:45-5:00\",\"event\":\"PowerUp.Mushroom\",\"value\":\"2.0\",\"level\":\"1-1\",\"position\":\"(142,142)\"}]}";
+        string send_item = "{\"session\":"+
+            "{\"id\":\"test\",\"player\":\"test\",\"game\":\"cs8809_project\",\"version\":\"1.0\"},"+
+            "\"play_events\":"+
+            "[{\"time\":\"2015 - 02 - 17T22: 43:45 - 5:00\",\"event\":\"PowerUp.FireBall\",\"value\":\"1.0\",\"level\":\"1-1\",\"position\":\"(42,42)\"},"+
+            "{\"time\":\"2015-02-17T22:45:45-5:00\",\"event\":\"PowerUp.Mushroom\",\"value\":\"2.0\",\"level\":\"1-1\",\"position\":\"(142,142)\"}]}";
         //string hash = CalculateMD5Hash(send_item + game_secret);
         //webRequest.Headers[HttpRequestHeader.Authorization] = "mac " + game_id + ":" + hash;
         webRequest.Credentials = new NetworkCredential(login, password);
-        //webRequest.ContentType = "application/json; charset=utf-8";
+        webRequest.ContentType = "application/json; charset=utf-8";
         webRequest.Method = "POST";
         
-
+        
         using (var streamWriter = new StreamWriter(webRequest.GetRequestStream()))
         {
             streamWriter.Write(send_item);
