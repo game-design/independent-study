@@ -21,7 +21,11 @@ public class PauseMenu : MonoBehaviour {
         {
             Transform playerT = GameObject.Find("Cha_Knight").transform;
             Transform mCameraT = GameObject.Find("Main Camera").transform;
-            switch (PauseMenu.currentPosition){ 
+            switch (PauseMenu.currentPosition){
+                case 0:
+                    playerT.position = new Vector3(-119, 0, -211);
+                    mCameraT.position = new Vector3(-119, 25, -226);
+                    break;
                 case 1:
                     playerT.position = new Vector3(-119, 0, -146);
                     mCameraT.position = new Vector3(-119, 25, -161);

@@ -6,22 +6,27 @@ public class teleporterForBox : MonoBehaviour {
 
     bool showWin = false;
     private Rect windowRect = new Rect(200, 200, 150, 100);
-    public char curSituation;
     public Transform initial_point;
     public Transform end_point;
     public static bool ready_to_go;
+    private SphereCollider sphere_collider;
 
 
     // Use this for initialization
     void Start () {
         ready_to_go = false;
         transform.position = initial_point.position;
+        sphere_collider = GetComponent<SphereCollider>();
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (winCondition.gameover)
+        {
             transform.position = end_point.position;
+            sphere_collider.enabled = false;
+        }
 	}
 
     void OnGUI()
@@ -41,18 +46,15 @@ public class teleporterForBox : MonoBehaviour {
         {
             if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
             {
+                Debug.Log("Wanna go back");
                 showWin = false;
-                //level 1 dodgeball
-                if (curSituation == 'b')
+                if (PauseMenu.currentPosition == 1)
+                {
+                    PauseMenu.currentPosition = 0;
+                }
+                else if (PauseMenu.currentPosition == 3)
                 {
                     PauseMenu.currentPosition = 2;
-                    return;
-                }
-                // level 2 dodgeball
-                if (curSituation == 'd')
-                {
-                    PauseMenu.currentPosition = 4;
-                    return;
                 }
                 SceneManager.LoadScene("Initial Room");
             }
@@ -63,7 +65,7 @@ public class teleporterForBox : MonoBehaviour {
             {
                 showWin = false;
                 ready_to_go = true;
-                Debug.Log(ready_to_go);
+                Debug.Log("ready to go");
             }
         }
     }
