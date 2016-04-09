@@ -62,7 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Campfire Pack\Script\SwitchView.cs" />
     <Compile Include="Assets\Cha_Data\Script\ScreenShot.cs" />
+    <Compile Include="Assets\Models\Teleportation Pad\CustomTeleporter.cs" />
     <Compile Include="Assets\Particle System\PyroParticles\Demo\DemoScript.cs" />
     <Compile Include="Assets\Particle System\PyroParticles\Prefab\Script\FireBaseScript.cs" />
     <Compile Include="Assets\Particle System\PyroParticles\Prefab\Script\FireCollisionForwardScript.cs" />
@@ -72,7 +74,6 @@
     <Compile Include="Assets\Particle System\PyroParticles\Prefab\Script\MeteorSwarmScript.cs" />
     <Compile Include="Assets\Particle System\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
     <Compile Include="Assets\Particle System\SimpleParticlePack\Scripts\ParticleTester.cs" />
-    <Compile Include="Assets\Teleportation Pad\CustomTeleporter.cs" />
     <Compile Include="Assets\script\CameraFollow.cs" />
     <Compile Include="Assets\script\Dodge\fireBallMovement.cs" />
     <Compile Include="Assets\script\Dodge\myTpPortal.cs" />
@@ -90,12 +91,13 @@
     <Compile Include="Assets\script\winCondition.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\A_piece_of_nature\Readme.txt" />
     <None Include="Assets\Cha_Data\Shader\WrapLambert.shader" />
-    <None Include="Assets\Medieval_Toon_Character\ReadMe.txt" />
+    <None Include="Assets\Models\Medieval_Toon_Character\ReadMe.txt" />
     <None Include="Assets\Models\Modern Interior Pack\Shaders\Glass.shader" />
+    <None Include="Assets\Models\Teleportation Pad\README.txt" />
     <None Include="Assets\Particle System\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
     <None Include="Assets\Particle System\PyroParticles\Readme.txt" />
-    <None Include="Assets\Teleportation Pad\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
