@@ -21,29 +21,15 @@ public class missionTP : MonoBehaviour {
     {
         if (showWin == true)// && !missionComfirm)
         {
-            windowRect = GUI.Window(0, windowRect, WindowContain, "Are you sure about\ngoing " + targetLevel);
-        }
-    }
-    public void WindowContain(int windowID)
-    {
-        if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
-        {
-            Debug.Log("go to" + targetLevel);
-            //increase position after winning the game
-            /*if (targetLevel.Equals("box_0") || targetLevel.Equals("dodgeBall_0"))
+            GUI.Box(new Rect(3*Screen.width / 8, 3*Screen.height / 8, Screen.width / 4, Screen.height / 8), "Are you sure about going to "+targetLevel+"?");
+            if (GUI.Button(new Rect(7*Screen.width / 16, 7*Screen.height / 16, Screen.width / 8, Screen.height /16), "sure"))
             {
-                PauseMenu.currentPosition = 1;
+                Debug.Log("go to" + targetLevel);
+                StartCoroutine("load_level");
             }
-
-            if (targetLevel.Equals("box_1") || targetLevel.Equals("dodgeBall_1"))
-            {
-                PauseMenu.currentPosition = 3;
-            }*/
-
-            StartCoroutine("load_level");
         }
     }
-
+    
     void OnTriggerEnter(Collider other)
     {
         showWin = true;

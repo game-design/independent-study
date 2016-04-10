@@ -47,13 +47,13 @@ public class myTpPortal : MonoBehaviour {
             // level 2 dodgeball
             if (curSituation == 'd')
             {
-                PauseMenu.currentPosition = 4;
+                PauseMenu.currentPosition = 3;
                 winControl_Dodge.gameover = true;
                 return;
             }
 			if (curSituation == 'f')
 			{
-				PauseMenu.currentPosition = 6;
+				PauseMenu.currentPosition = 5;
 				winControl_Dodge.gameover = true;
 				return;
 			}

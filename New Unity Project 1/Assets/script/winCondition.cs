@@ -53,7 +53,7 @@ public class winCondition : MonoBehaviour {
             }
             if (final_play)
             {
-                PauseMenu.currentPosition++;
+                Debug.Log("current position: " + PauseMenu.currentPosition);
                 if (teleporterForBox.ready_to_go)
                 {
                     SceneManager.LoadScene("Initial Room");
