@@ -15,7 +15,6 @@ public class winCondition : MonoBehaviour {
     Animation final;
     bool final_play;
 
-    public int currentLevel;
 
 
     // Use this for initialization
@@ -54,7 +53,7 @@ public class winCondition : MonoBehaviour {
             }
             if (final_play)
             {
-                PauseMenu.currentPosition = currentLevel;
+                PauseMenu.currentPosition++;
                 if (teleporterForBox.ready_to_go)
                 {
                     SceneManager.LoadScene("Initial Room");

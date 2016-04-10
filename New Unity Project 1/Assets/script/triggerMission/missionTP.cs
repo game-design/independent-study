@@ -28,7 +28,9 @@ public class missionTP : MonoBehaviour {
     {
         if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
         {
-            if (targetLevel.Equals("box_0") || targetLevel.Equals("dodgeBall_0"))
+            Debug.Log("go to" + targetLevel);
+            //increase position after winning the game
+            /*if (targetLevel.Equals("box_0") || targetLevel.Equals("dodgeBall_0"))
             {
                 PauseMenu.currentPosition = 1;
             }
@@ -36,7 +38,7 @@ public class missionTP : MonoBehaviour {
             if (targetLevel.Equals("box_1") || targetLevel.Equals("dodgeBall_1"))
             {
                 PauseMenu.currentPosition = 3;
-            }
+            }*/
 
             StartCoroutine("load_level");
         }

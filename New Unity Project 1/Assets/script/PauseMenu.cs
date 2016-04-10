@@ -9,22 +9,30 @@ public class PauseMenu : MonoBehaviour {
     public bool paused = false;
     public string initial_level;
     int myClickTimer = 20;
+    public static int array_size;
+    public Transform[] positions=new Transform[array_size];
+    
 
 	// Use this for initialization
 	void Start () {
         Time.timeScale = 1;
-
         //Locate player according to current mission
         // 1 for before level 1 while 2 for finish level 1
         // 3 for before level 2 while 4 for finish level 2
         if (SceneManager.GetActiveScene().name == "Initial Room")
         {
+
             Transform playerT = GameObject.Find("Cha_Knight").transform;
             Transform mCameraT = GameObject.Find("Main Camera").transform;
-            switch (PauseMenu.currentPosition){
+            playerT.position = positions[PauseMenu.currentPosition].position;
+            mCameraT.position = new Vector3(positions[PauseMenu.currentPosition].position.x, 
+                                            positions[PauseMenu.currentPosition].position.y + 25, 
+                                            positions[PauseMenu.currentPosition].position.z - 15);
+
+            /*switch (PauseMenu.currentPosition){
                 case 0:
-                    playerT.position = new Vector3(-119, 0, -211);
-                    mCameraT.position = new Vector3(-119, 25, -226);
+                    playerT.position = positions[0].position;
+                    mCameraT.position = new Vector3(positions[0].position.x, positions[0].position.y + 25, positions[0].position.y - 15);
                     break;
                 case 1:
                     playerT.position = new Vector3(-119, 0, -146);
@@ -62,7 +70,7 @@ public class PauseMenu : MonoBehaviour {
                     playerT.position = new Vector3(-87, 0, 74);
                     mCameraT.position = new Vector3(-87, 25, 58);
                     break;
-            }
+            }*/
         }
     }
 	

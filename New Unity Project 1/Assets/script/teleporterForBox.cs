@@ -48,14 +48,14 @@ public class teleporterForBox : MonoBehaviour {
             {
                 Debug.Log("Wanna go back");
                 showWin = false;
-                if (PauseMenu.currentPosition == 1)
+                /*if (PauseMenu.currentPosition == 1)
                 {
                     PauseMenu.currentPosition = 0;
                 }
                 else if (PauseMenu.currentPosition == 3)
                 {
                     PauseMenu.currentPosition = 2;
-                }
+                }*/
                 SceneManager.LoadScene("Initial Room");
             }
         }

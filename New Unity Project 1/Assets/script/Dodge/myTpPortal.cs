@@ -36,9 +36,11 @@ public class myTpPortal : MonoBehaviour {
         {
             showWin = false;
             //level 1 dodgeball
+
+
             if (curSituation == 'b')
             {
-                PauseMenu.currentPosition = 2;
+                PauseMenu.currentPosition = 1;
                 winControl_Dodge.gameover = true;
                 return;
             }
