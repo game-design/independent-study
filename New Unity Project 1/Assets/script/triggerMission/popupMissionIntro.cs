@@ -20,7 +20,7 @@ public class popupMissionIntro : MonoBehaviour {
     {
         if (showWin == true && this.name == "introMission1")
         {
-			windowRect = GUI.Window(0, new Rect(100, 100, 150, 100), emptyWin, " Left is DODGEBALL \n Right is BOXING ");
+			GUI.Box(new Rect(100, 100, 150, 100)," Left is DODGEBALL \n Right is BOXING ");
 			return;
         }
         if (showWin == true && this.name == "introMission2")

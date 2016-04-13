@@ -51,12 +51,27 @@ public class myTpPortal : MonoBehaviour {
                 winControl_Dodge.gameover = true;
                 return;
             }
-			if (curSituation == 'f')
+			if (curSituation == 'f')//level 3
 			{
 				PauseMenu.currentPosition = 5;
 				winControl_Dodge.gameover = true;
 				return;
 			}
+            if (curSituation == 'h')//level 4
+            {
+                PauseMenu.currentPosition = 6;
+                winControl_Dodge.gameover = true;
+                return;
+            }
+            if (curSituation == 'j')//level 5
+            {
+                PauseMenu.currentPosition = 7;
+                winControl_Dodge.gameover = true;
+                return;
+            }
+
+
+
             SceneManager.LoadScene("Initial Room");
         }
     }

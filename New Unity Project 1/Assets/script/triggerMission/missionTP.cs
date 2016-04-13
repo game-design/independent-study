@@ -21,8 +21,8 @@ public class missionTP : MonoBehaviour {
     {
         if (showWin == true)// && !missionComfirm)
         {
-            GUI.Box(new Rect(3*Screen.width / 8, 3*Screen.height / 8, Screen.width / 4, Screen.height / 8), "Are you sure about going to "+targetLevel+"?");
-            if (GUI.Button(new Rect(7*Screen.width / 16, 7*Screen.height / 16, Screen.width / 8, Screen.height /16), "sure"))
+            GUI.Box(new Rect(Screen.width / 2-150, Screen.height / 2-35, 300, 70), "Are you sure about going to "+targetLevel+"?");
+            if (GUI.Button(new Rect(Screen.width / 2 - 40, Screen.height/2, 80, 30), "sure"))
             {
                 Debug.Log("go to" + targetLevel);
                 StartCoroutine("load_level");
