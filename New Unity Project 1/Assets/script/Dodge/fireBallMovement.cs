@@ -28,6 +28,9 @@ public class fireBallMovement : MonoBehaviour {
 	Vector3 basePositionB_3 = new Vector3 (-91,-1,-120);
 	long timeBezier = System.DateTime.Now.Ticks;
 
+    public double showTimer;
+    public int showTimerController;
+    Vector3 iterMove = new Vector3(0.2f, 0, -0.2f);
 	// Use this for initialization
     void Start () {
 	
@@ -64,6 +67,46 @@ public class fireBallMovement : MonoBehaviour {
 			//Debug.Log (((System.DateTime.Now.Ticks - timeBezier)%10000000)/100000000);
 			this.transform.position = Bezier3(positionB0_3+basePositionB_3,positionB1_3+basePositionB_3,positionB2_3+basePositionB_3,positionB3_3+basePositionB_3,((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000)%100000000)/100000000f);			
 		}
+
+        if (this.name == "fireBall_6")
+        {
+            showTimer = showTimer + Time.deltaTime;
+            if(showTimer > 2.0){
+                this.transform.Translate(new Vector3(0, -20 * showTimerController, 0));
+                showTimer = showTimer % 2.0;
+                showTimerController = -showTimerController;
+            }
+        }
+
+        if (this.name == "fireBall_7")
+        {
+            showTimer = showTimer + Time.deltaTime;
+            if (showTimer > 1.3)
+            {
+                this.transform.Translate(new Vector3(0, -20 * showTimerController, 0));
+                showTimer = showTimer % 1.3;
+                showTimerController = -showTimerController;
+            }
+        }
+        if (this.name == "fireBall_8")
+        {
+            float myTemp = this.transform.position.x;
+            if (myTemp < -104 || myTemp > -87)
+            {
+                iterMove = iterMove * -1;
+            }
+            this.transform.Translate(iterMove);
+        }
+
+        if (this.name == "fireBall_9")
+        {
+            float myTemp = this.transform.position.x;
+            if (myTemp < -92  || myTemp > -76)
+            {
+                iterMove = iterMove * -1;
+            }
+            this.transform.Translate(iterMove);
+        }
 
 	}
 
