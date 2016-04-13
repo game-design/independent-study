@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 using System;
+using System.Collections.Generic;
 
 
 public class loggerrequest : MonoBehaviour {
@@ -22,6 +23,22 @@ public class loggerrequest : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Debug.Log("start");
+        
+        string url = base_url + "gameplay/:8809";
+        WWWForm form = new WWWForm();
+
+        Dictionary<string,string> headers = form.headers;
+        headers["Authorization"] = "Basic " + System.Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("dev:dev"));
+        headers["Content-Type"]= "application/json";
+
+        form.AddField("session", "{\"id\":\"test\",\"player\":\"test\",\"game\":\"cs8809_project\",\"version\":\"1.0\"}");
+        form.AddField("play_events", "[{\"time\":\"2016 - 04 - 12T22: 43:45 - 5:00\",\"event\":\"PowerUp.FireBall\",\"value\":\"1.0\",\"level\":\"1-1\",\"position\":\"(42,42)\"}]");
+        byte[] rawData = form.data;
+
+        WWW www = new WWW(url, rawData, headers);
+        StartCoroutine(WaitForRequest(www));
+        
+        /*
         HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(base_url+ "gameplay/:8809");
         string send_item = "{\"session\":"+
             "{\"id\":\"test\",\"player\":\"test\",\"game\":\"cs8809_project\",\"version\":\"1.0\"},"+
@@ -51,8 +68,28 @@ public class loggerrequest : MonoBehaviour {
 
         //hash = md5(request.body + GAME_SECRET).toHex()
 //request.headers.authorization = "mac " + GAME_ID + ":" + hash
+*/
+
+
+
 
     }
+
+    IEnumerator WaitForRequest(WWW www)
+    {
+        yield return www;
+        if (www.error == null)
+            Debug.Log(www.text);
+        else
+            Debug.Log("Error " + www.error);
+    }
+
+
+
+
+
+
+
 	
 	// Update is called once per frame
 	void Update () {
