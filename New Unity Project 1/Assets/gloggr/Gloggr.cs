@@ -96,6 +96,9 @@ public class Gloggr : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+
+        Debug.Log("awake now");
+
 		_instance = this;
 		gameObject.name = NAME;
 		if (Application.isEditor)

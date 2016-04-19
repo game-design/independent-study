@@ -7,13 +7,13 @@ public class winControl_Dodge : MonoBehaviour
 {
     public Text timer;
     public Text score;
-    float current_time;
+    public static float current_time;
     public static bool gameover;
     AudioSource win;
-    public static int step;
+    public int step;
     Animation final;
     bool final_play;
-    int amountofDeath = 0;
+    public static int amountofDeath = 0;
 
     // Use this for initialization
     void Awake()

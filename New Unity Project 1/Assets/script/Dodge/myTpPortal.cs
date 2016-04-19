@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 // this is for all portal in dodgeball missions
+[RequireComponent(typeof(Gloggr_Tracker))]
 public class myTpPortal : MonoBehaviour {
 
     bool showWin = false;
@@ -10,7 +11,14 @@ public class myTpPortal : MonoBehaviour {
     private Rect windowRect = new Rect(200, 200, 150, 100);
     public char curSituation;
 
+    Gloggr_Tracker gTracker;
+
     // Use this for initialization
+    void Awake()
+    {
+        gTracker = GetComponent<Gloggr_Tracker>();
+    }
+
     void Start()
     {
 
@@ -38,41 +46,36 @@ public class myTpPortal : MonoBehaviour {
             //level 1 dodgeball
 
 
-            if (curSituation == 'b')
+            if (curSituation == 'b' || curSituation == 'd' || curSituation == 'f' || curSituation == 'h' || curSituation == 'j')
             {
-                PauseMenu.currentPosition = 1;
-                winControl_Dodge.gameover = true;
-                return;
-            }
-            // level 2 dodgeball
-            if (curSituation == 'd')
-            {
-                PauseMenu.currentPosition = 3;
-                winControl_Dodge.gameover = true;
-                return;
-            }
-			if (curSituation == 'f')//level 3
-			{
-				PauseMenu.currentPosition = 5;
-				winControl_Dodge.gameover = true;
-				return;
-			}
-            if (curSituation == 'h')//level 4
-            {
-                PauseMenu.currentPosition = 6;
-                winControl_Dodge.gameover = true;
-                return;
-            }
-            if (curSituation == 'j')//level 5
-            {
-                PauseMenu.currentPosition = 7;
-                winControl_Dodge.gameover = true;
-                return;
-            }
+                string message = "Pass " + winControl_Dodge.current_time.ToString() + " " + winControl_Dodge.amountofDeath.ToString();
+                gTracker.CaptureEvent(message);
+                Gloggr.Instance.PostEvents();
 
+                winControl_Dodge.gameover = true;
+                switch (curSituation)
+                {
+                    case 'b':
+                        PauseMenu.currentPosition = 1; break;
+                    case 'd':
+                        PauseMenu.currentPosition = 3; break;
+                    case 'f':
+                        PauseMenu.currentPosition = 5; break;
+                    case 'h':
+                        PauseMenu.currentPosition = 6; break;
+                    case 'j':
+                        PauseMenu.currentPosition = 7; break;
 
-
-            SceneManager.LoadScene("Initial Room");
+                }
+                return;
+            }
+            else
+            {
+                string message = "Fail " + winControl_Dodge.current_time.ToString() + "s " + winControl_Dodge.amountofDeath.ToString()+" death";
+                gTracker.CaptureEvent(message);
+                Gloggr.Instance.PostEvents();
+                SceneManager.LoadScene("Initial Room");
+            }
         }
     }
 
