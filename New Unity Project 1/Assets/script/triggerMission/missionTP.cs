@@ -3,13 +3,22 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 // this is for portals in initial room
+
+[RequireComponent(typeof(Gloggr_Tracker))]
 public class missionTP : MonoBehaviour {
+
+    Gloggr_Tracker gTracker;
 
     bool showWin = false;
     public bool missionComfirm = false;
     private Rect windowRect = new Rect(200, 200, 150, 100);
     public string targetLevel;
 
+
+    void Awake()
+    {
+        gTracker = GetComponent<Gloggr_Tracker>();
+    }
 
     // Use this for initialization
     void Start(){}
@@ -42,6 +51,8 @@ public class missionTP : MonoBehaviour {
     IEnumerator load_level()
     {
         yield return new WaitForSeconds(1f);
+        gTracker.CaptureEvent("enter "+targetLevel);
+        Debug.Log("capture event");
         SceneManager.LoadScene(targetLevel);
     }
 }
