@@ -9,12 +9,18 @@ public class startAnimationControl : MonoBehaviour {
     public Transform leftPoint;
     public Transform rightPoint;
     bool left;
+
+    public GameObject box;
+    public GameObject fireball;
+
     // Use this for initialization
     void Start () {
         playerRigidbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animation>();
         playerRigidbody.position = leftPoint.position;
         left = true;
+        fireball.SetActive(false);
+        box.SetActive(true);
 	}
 	
 	// Update is called once per frame
@@ -39,9 +45,17 @@ public class startAnimationControl : MonoBehaviour {
         }
 
         if (playerRigidbody.position.x < leftPoint.position.x)
+        {
             left = true;
+            fireball.SetActive(false);
+            box.SetActive(true);
+        }
         if (playerRigidbody.position.x > rightPoint.position.x)
+        {
             left = false;
+            fireball.SetActive(true);
+            box.SetActive(false);
+        }
 
 	}
 }

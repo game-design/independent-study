@@ -10,6 +10,8 @@ public class menuManager : MonoBehaviour {
     public Button credit;
     public Button back;
     public Button start;
+
+    float waittime = 1.5f;
     
 
 	// Use this for initialization
@@ -19,22 +21,37 @@ public class menuManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+       
 	}
 
 
+    
     public void triggerCreditAnimation()
     {
-        camera_animator.SetTrigger("checkCredit");
-        back.gameObject.SetActive(true);
-        credit.gameObject.SetActive(false);
-        start.gameObject.SetActive(false);
+        StartCoroutine(credit_func());
     }
+
 
     public void triggerBackAnimation()
     {
-        camera_animator.SetTrigger("backIntro");
+        StartCoroutine(back_func());
+    }
+
+  
+    public IEnumerator credit_func()
+    {
+        credit.gameObject.SetActive(false);
+        start.gameObject.SetActive(false);
+        camera_animator.SetTrigger("checkCredit");
+        yield return new WaitForSeconds(waittime);
+        back.gameObject.SetActive(true);
+    }
+
+    public IEnumerator back_func()
+    {
         back.gameObject.SetActive(false);
+        camera_animator.SetTrigger("backIntro");
+        yield return new WaitForSeconds(waittime);       
         credit.gameObject.SetActive(true);
         start.gameObject.SetActive(true);
     }
