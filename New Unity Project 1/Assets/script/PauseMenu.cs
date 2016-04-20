@@ -19,15 +19,17 @@ public class PauseMenu : MonoBehaviour {
         //Locate player according to current mission
         // 1 for before level 1 while 2 for finish level 1
         // 3 for before level 2 while 4 for finish level 2
-        if (SceneManager.GetActiveScene().name == "Initial Room")
+        if (SceneManager.GetActiveScene().name == "Initial Room" && currentPosition != 0)
         {
 
             Transform playerT = GameObject.Find("Cha_Knight").transform;
             Transform mCameraT = GameObject.Find("Main Camera").transform;
             playerT.position = positions[PauseMenu.currentPosition].position;
-            mCameraT.position = new Vector3(positions[PauseMenu.currentPosition].position.x, 
+            /*mCameraT.position = new Vector3(positions[PauseMenu.currentPosition].position.x, 
                                             positions[PauseMenu.currentPosition].position.y + 25, 
                                             positions[PauseMenu.currentPosition].position.z - 15);
+            */
+            mCameraT.position = playerT.position + mCameraT.GetComponent<CameraFollow>().getOffset();
 
             /*switch (PauseMenu.currentPosition){
                 case 0:

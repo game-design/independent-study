@@ -2,7 +2,7 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed=18f;
+	public float speed= 18f;
 	Vector3 movement, rotationY;
 	Animation anim;
 	Rigidbody playerRigidbody;
