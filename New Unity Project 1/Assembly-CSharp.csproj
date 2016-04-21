@@ -71,8 +71,10 @@
      <Compile Include="Assets\script\Dodge\fireBallMovement.cs" />
      <Compile Include="Assets\script\Dodge\myTpPortal.cs" />
      <Compile Include="Assets\script\Dodge\winControl_Dodge.cs" />
+     <Compile Include="Assets\script\FadeText.cs" />
      <Compile Include="Assets\script\PauseMenu.cs" />
      <Compile Include="Assets\script\PlayerMovement.cs" />
+     <Compile Include="Assets\script\TriggerValue.cs" />
      <Compile Include="Assets\script\animationControl.cs" />
      <Compile Include="Assets\script\boxcollider.cs" />
      <Compile Include="Assets\script\loggerrequest.cs" />
