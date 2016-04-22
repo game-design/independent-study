@@ -24,6 +24,7 @@ public class FadeText : MonoBehaviour {
     void OnTriggerEnter(Collider collider)
     {
         TriggerValue value = collider.GetComponent<TriggerValue>();
+        Debug.Log(value);
         if (value != null)
         {
             currentGoal = value.triggerFloat;

@@ -12,11 +12,16 @@ public class menuManager : MonoBehaviour {
     public Button start;
 
     float waittime = 1.5f;
+
+    GameObject billboard;
+    Animation textRising;
     
 
 	// Use this for initialization
 	void Start () {
         back.gameObject.SetActive(false);
+        billboard = GameObject.FindGameObjectWithTag("billboard");
+        textRising = billboard.GetComponent<Animation>();
     }
 	
 	// Update is called once per frame
@@ -45,6 +50,8 @@ public class menuManager : MonoBehaviour {
         camera_animator.SetTrigger("checkCredit");
         yield return new WaitForSeconds(waittime);
         back.gameObject.SetActive(true);
+        if (!textRising.isPlaying)
+            textRising.Play();
     }
 
     public IEnumerator back_func()
