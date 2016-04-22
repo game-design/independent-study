@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class menuManager : MonoBehaviour {
 
@@ -34,6 +35,11 @@ public class menuManager : MonoBehaviour {
     public void triggerCreditAnimation()
     {
         StartCoroutine(credit_func());
+    }
+
+    public void triggerStartAnimation()
+    {
+        SceneManager.LoadScene("Initial Room");
     }
 
 

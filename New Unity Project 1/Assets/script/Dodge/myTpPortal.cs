@@ -48,7 +48,7 @@ public class myTpPortal : MonoBehaviour {
 
             if (curSituation == 'b' || curSituation == 'd' || curSituation == 'f' || curSituation == 'h' || curSituation == 'j')
             {
-                string message = "Pass " + winControl_Dodge.current_time.ToString() + " " + winControl_Dodge.amountofDeath.ToString();
+                string message = "Pass time: " + winControl_Dodge.current_time.ToString() + " death: " + winControl_Dodge.amountofDeath.ToString();
                 gTracker.CaptureEvent(message);
                 Gloggr.Instance.PostEvents();
 
@@ -71,7 +71,7 @@ public class myTpPortal : MonoBehaviour {
             }
             else
             {
-                string message = "Fail " + winControl_Dodge.current_time.ToString() + "s " + winControl_Dodge.amountofDeath.ToString()+" death";
+                string message = "Fail time: " + winControl_Dodge.current_time.ToString() + " death: " + winControl_Dodge.amountofDeath.ToString();
                 gTracker.CaptureEvent(message);
                 Gloggr.Instance.PostEvents();
                 SceneManager.LoadScene("Initial Room");

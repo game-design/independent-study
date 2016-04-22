@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class winCondition : MonoBehaviour {
     public Text timer;
     public Text score;
-    float current_time;
+    public static float current_time;
     public static bool gameover;
     int size=4;
     public GameObject[] targets=new GameObject[4];

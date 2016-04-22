@@ -11,14 +11,16 @@ public class teleporterForBox : MonoBehaviour {
     public static bool ready_to_go;
     private SphereCollider sphere_collider;
 
+    Gloggr_Tracker gTracker;
 
     // Use this for initialization
     void Start () {
         ready_to_go = false;
         transform.position = initial_point.position;
         sphere_collider = GetComponent<SphereCollider>();
-        
-	}
+        gTracker = GetComponent<Gloggr_Tracker>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,6 +48,9 @@ public class teleporterForBox : MonoBehaviour {
         {
             if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
             {
+                string message = "Fail time: " + winCondition.current_time.ToString() + " step: " + winCondition.step.ToString();
+                gTracker.CaptureEvent(message);
+                Gloggr.Instance.PostEvents();
                 Debug.Log("Wanna go back");
                 showWin = false;
                 SceneManager.LoadScene("Initial Room");
@@ -55,6 +60,11 @@ public class teleporterForBox : MonoBehaviour {
         {
             if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
             {
+
+                string message = "Pass time: " + winCondition.current_time.ToString() + " step: " + winCondition.step.ToString();
+                gTracker.CaptureEvent(message);
+                Gloggr.Instance.PostEvents();
+
                 showWin = false;
                 PauseMenu.currentPosition++;
                 ready_to_go = true;
