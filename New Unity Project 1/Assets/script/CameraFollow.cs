@@ -4,11 +4,14 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 	public Transform target;
 	public float smoothing= 2f;
-	Vector3 offset;
+	public static Vector3 offset;
 	void Start()
 	{
-		offset = transform.position - target.position;
-
+        //这样只有在游戏开始时来决定在init room中摄像机的位置，而不是每次从mission中返回时
+        if (offset != null)
+        {
+            offset = transform.position - target.position;
+        }
 	}
 
     public Vector3 getOffset(){

@@ -93,7 +93,6 @@
      <None Include="Assets\Cha_Data\Shader\WrapLambert.shader" />
      <None Include="Assets\Models\Teleportation Pad\README.txt" />
      <None Include="Assets\Particle System\PyroParticles\Readme.txt" />
-     <None Include="Assets\Models\Modern Interior Pack\Shaders\Glass.shader" />
      <None Include="Assets\Models\Medieval_Toon_Character\ReadMe.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
