@@ -4,13 +4,11 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 	public Transform target;
 	public float smoothing= 2f;
-	public static Vector3 offset;
+	Vector3 offset;
 	void Start()
 	{
-        if (offset != null)
-        {
-            offset = transform.position - target.position;
-        }
+		offset = transform.position - target.position;
+
 	}
 
     public Vector3 getOffset(){
