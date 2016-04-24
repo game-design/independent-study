@@ -11,15 +11,20 @@ public class menuManager : MonoBehaviour {
     public Button credit;
     public Button back;
     public Button start;
+    public Button quit;
 
     float waittime = 1.5f;
 
     GameObject billboard;
     Animation textRising;
-    
 
-	// Use this for initialization
-	void Start () {
+    #if UNITY_WEBPLAYER
+        public static string webplayerQuitURL = "http://google.com";
+    #endif
+
+
+    // Use this for initialization
+    void Start () {
         back.gameObject.SetActive(false);
         billboard = GameObject.FindGameObjectWithTag("billboard");
         textRising = billboard.GetComponent<Animation>();
@@ -42,6 +47,18 @@ public class menuManager : MonoBehaviour {
         SceneManager.LoadScene("Initial Room");
     }
 
+    public void triggerQuitApplication()
+    {
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #elif UNITY_WEBPLAYER
+                 Application.OpenURL(webplayerQuitURL);
+        #else
+                 Application.Quit();
+        #endif
+    }
+
+
 
     public void triggerBackAnimation()
     {
@@ -53,6 +70,8 @@ public class menuManager : MonoBehaviour {
     {
         credit.gameObject.SetActive(false);
         start.gameObject.SetActive(false);
+        quit.gameObject.SetActive(false);
+        
         camera_animator.SetTrigger("checkCredit");
         yield return new WaitForSeconds(waittime);
         back.gameObject.SetActive(true);
@@ -67,6 +86,7 @@ public class menuManager : MonoBehaviour {
         yield return new WaitForSeconds(waittime);       
         credit.gameObject.SetActive(true);
         start.gameObject.SetActive(true);
+        quit.gameObject.SetActive(true);
     }
 
 

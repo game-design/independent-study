@@ -10,6 +10,8 @@ public class startAnimationControl : MonoBehaviour {
     public Transform rightPoint;
     bool left;
 
+    float speed = 35f;
+
     public GameObject box;
     public GameObject fireball;
 
@@ -28,7 +30,7 @@ public class startAnimationControl : MonoBehaviour {
         if (left)
         {
             movement.Set(1f, 0f, 0f);
-            movement = movement.normalized * 45f * Time.deltaTime;
+            movement = movement.normalized * speed * Time.deltaTime;
             playerRigidbody.MovePosition(transform.position + movement);
 
             Quaternion newRotation = Quaternion.LookRotation(movement);
@@ -37,7 +39,7 @@ public class startAnimationControl : MonoBehaviour {
         else
         {
             movement.Set(-1f, 0f, 0f);
-            movement = movement.normalized * 45f * Time.deltaTime;
+            movement = movement.normalized * speed * Time.deltaTime;
             playerRigidbody.MovePosition(transform.position + movement);
 
             Quaternion newRotation = Quaternion.LookRotation(movement);
