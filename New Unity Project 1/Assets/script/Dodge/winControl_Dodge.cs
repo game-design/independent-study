@@ -15,6 +15,8 @@ public class winControl_Dodge : MonoBehaviour
     bool final_play;
     public static int amountofDeath = 0;
 
+    Gloggr_Tracker gTracker;
+
     // Use this for initialization
     void Awake()
     {
@@ -24,14 +26,24 @@ public class winControl_Dodge : MonoBehaviour
         step = 0;
         final = GetComponent<Animation>();
         final_play = false;
+        gTracker = GetComponent<Gloggr_Tracker>();
     }
 
     void reStart()
     {
+
+        string message = "Dead";
+        gTracker.CaptureEvent(message);
+        Gloggr.Instance.PostEvents();
+
         gameover = false;
         step = 0;
         final_play = false;
         amountofDeath++;
+
+
+
+
     }
 
     // Update is called once per frame
