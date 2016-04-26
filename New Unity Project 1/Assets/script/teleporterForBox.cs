@@ -35,18 +35,8 @@ public class teleporterForBox : MonoBehaviour {
     {
         if (showWin == true&& !winCondition.gameover)
         {
-            windowRect = GUI.Window(0, windowRect, WindowContain, "Are you sure about\ngoing back?");
-        }
-        if (showWin == true && winCondition.gameover)
-        {
-            windowRect = GUI.Window(0, windowRect, WindowContain, "Ready to go to next level?");
-        }
-    }
-    public void WindowContain(int windowID)
-    {
-        if (!winCondition.gameover)
-        {
-            if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
+            GUI.Box(new Rect(Screen.width / 3, 2*Screen.height / 5, Screen.width / 3, Screen.height / 5), "Are you sure about going back?");
+            if (GUI.Button(new Rect(11*Screen.width /25, Screen.height / 2, 3*Screen.width/25, Screen.height/12), "Sure"))
             {
                 string message = "Fail time: " + winCondition.current_time.ToString() + " step: " + winCondition.step.ToString();
                 gTracker.CaptureEvent(message);
@@ -55,10 +45,12 @@ public class teleporterForBox : MonoBehaviour {
                 showWin = false;
                 SceneManager.LoadScene("Initial Room");
             }
+
         }
-        else
+        if (showWin == true && winCondition.gameover)
         {
-            if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
+            GUI.Box(new Rect(Screen.width / 3, 2 * Screen.height / 5, Screen.width / 3, Screen.height / 5), "Ready to go to next level?");
+            if (GUI.Button(new Rect(11 * Screen.width / 25, Screen.height / 2, 3 * Screen.width / 25, Screen.height / 12), "Sure"))
             {
 
                 string message = "Pass time: " + winCondition.current_time.ToString() + " step: " + winCondition.step.ToString();
@@ -73,7 +65,7 @@ public class teleporterForBox : MonoBehaviour {
             }
         }
     }
-
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

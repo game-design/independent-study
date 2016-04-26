@@ -11,10 +11,14 @@ public class PauseMenu : MonoBehaviour {
     int myClickTimer = 20;
     public static int array_size;
     public Transform[] positions=new Transform[array_size];
-    
 
-	// Use this for initialization
-	void Start () {
+    Gloggr_Tracker gTracker;
+
+    // Use this for initialization
+    void Start () {
+
+        gTracker = GetComponent<Gloggr_Tracker>();
+
         Time.timeScale = 1;
         //Locate player according to current mission
         // 1 for before level 1 while 2 for finish level 1
@@ -95,9 +99,18 @@ public class PauseMenu : MonoBehaviour {
     {
         if (paused)
         {
+            string message = "Pause game";
+            gTracker.CaptureEvent(message);
+            Gloggr.Instance.PostEvents();
+
+
+
             GUI.Box(new Rect(Screen.width / 4, Screen.height / 4, Screen.width / 2, Screen.height / 2), "PAUSED");
             if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESUME"))
             {
+                message = "Resume game";
+                gTracker.CaptureEvent(message);
+                Gloggr.Instance.PostEvents();
                 paused = false;
             }
             /*if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 2 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESTART"))
@@ -107,6 +120,9 @@ public class PauseMenu : MonoBehaviour {
             }*/
             if (GUI.Button(new Rect(Screen.width / 4 + 10, Screen.height / 4 + 3 * Screen.height / 10 + 10, Screen.width / 2 - 20, Screen.height / 10), "RESET"))
             {
+                message = "Reset game";
+                gTracker.CaptureEvent(message);
+                Gloggr.Instance.PostEvents();
                 paused = false;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
