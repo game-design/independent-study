@@ -7,7 +7,10 @@ public class fireBallMovement : MonoBehaviour {
 
     public float velocity = 20f;
     public float velocity2 = 15f;
+
+
 	// from 1 to 10 to determine which part of Bezier
+    // all curve movements
 	public int positionBezier;
 	Vector3 positionB0 = new Vector3 (-67, 3, -7);
 	Vector3 positionB1 = new Vector3 (-39, 3, -50);
@@ -26,7 +29,13 @@ public class fireBallMovement : MonoBehaviour {
 	Vector3 positionB2_3 = new Vector3  (12, 3, -40);
 	Vector3 positionB3_3 = new Vector3 (30, 3, -16);
 	Vector3 basePositionB_3 = new Vector3 (-91,-1,-120);
+
+    Vector3 positionB0_4 = new Vector3(-95, -11, -202);
+    Vector3 positionB1_4 = new Vector3(-105, 16, -202);
+    Vector3 positionB2_4 = new Vector3(-74, 16, -202);
+    Vector3 positionB3_4 = new Vector3(-82, -11, -202);
 	long timeBezier = System.DateTime.Now.Ticks;
+
 
     public double showTimer;
     public int showTimerController;
@@ -106,6 +115,12 @@ public class fireBallMovement : MonoBehaviour {
                 iterMove = iterMove * -1;
             }
             this.transform.Translate(iterMove);
+        }
+
+        if (this.name == "fireBall_10")
+        {
+            //Debug.Log (((System.DateTime.Now.Ticks - timeBezier)%10000000)/100000000);
+            this.transform.position = Bezier3(positionB0_4, positionB1_4, positionB2_4, positionB3_4, ((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000) % 100000000) / 100000000f);
         }
 
 	}
