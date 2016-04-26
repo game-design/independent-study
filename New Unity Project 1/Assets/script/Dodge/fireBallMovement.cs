@@ -34,7 +34,13 @@ public class fireBallMovement : MonoBehaviour {
     Vector3 positionB1_4 = new Vector3(-105, 16, -202);
     Vector3 positionB2_4 = new Vector3(-74, 16, -202);
     Vector3 positionB3_4 = new Vector3(-82, -11, -202);
-	long timeBezier = System.DateTime.Now.Ticks;
+
+    Vector3 positionB0_5 = new Vector3(-91, -13, -40);
+    Vector3 positionB1_5 = new Vector3(-88, -13, -23);
+    Vector3 positionB2_5 = new Vector3(-50, -16, -17);
+    Vector3 positionB3_5 = new Vector3(-37, -19, -27);
+
+    long timeBezier = System.DateTime.Now.Ticks;
 
 
     public double showTimer;
@@ -81,7 +87,7 @@ public class fireBallMovement : MonoBehaviour {
         {
             showTimer = showTimer + Time.deltaTime;
             if(showTimer > 2.0){
-                this.transform.Translate(new Vector3(0, -20 * showTimerController, 0));
+                this.transform.Translate(new Vector3(0, -15 * showTimerController, 0));
                 showTimer = showTimer % 2.0;
                 showTimerController = -showTimerController;
             }
@@ -119,10 +125,23 @@ public class fireBallMovement : MonoBehaviour {
 
         if (this.name == "fireBall_10")
         {
-            //Debug.Log (((System.DateTime.Now.Ticks - timeBezier)%10000000)/100000000);
             this.transform.position = Bezier3(positionB0_4, positionB1_4, positionB2_4, positionB3_4, ((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000) % 100000000) / 100000000f);
         }
+        if (this.name == "fireBall_11")
+        {
+            this.transform.position = Bezier3(positionB0_5, positionB1_5, positionB2_5, positionB3_5, ((System.DateTime.Now.Ticks - timeBezier + positionBezier * 10000000) % 100000000) / 100000000f);
+        }
 
+        if (this.name == "fireBall_12")
+        {
+            showTimer = showTimer + Time.deltaTime;
+            if (showTimer > 2.0)
+            {
+                this.transform.Translate(new Vector3(20 * showTimerController,0,0));
+                showTimer = showTimer % 2.0;
+                showTimerController = -showTimerController;
+            }
+        }
 	}
 
 	Vector3 Bezier3(Vector3 s,Vector3 st,Vector3 et,Vector3 e,float t)
