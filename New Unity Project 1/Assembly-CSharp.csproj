@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Cha_Data\Script\ScreenShot.cs" />
-     <Compile Include="Assets\Models\Campfire Pack\Script\SwitchView.cs" />
      <Compile Include="Assets\Models\PainterlyNature\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Models\Teleportation Pad\CustomTeleporter.cs" />
      <Compile Include="Assets\Particle System\PyroParticles\Demo\DemoScript.cs" />
