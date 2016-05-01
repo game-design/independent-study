@@ -56,10 +56,6 @@ public class PauseMenu : MonoBehaviour {
                     playerT.position = new Vector3(-90, 0, 34);
                     mCameraT.position = new Vector3(-90, 25, 19);
                     break;
-
-
-
-
                 case 5:
                     playerT.position = new Vector3(-87, 0, 74);
                     mCameraT.position = new Vector3(-87, 25, 58);

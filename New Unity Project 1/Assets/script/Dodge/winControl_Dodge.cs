@@ -40,10 +40,7 @@ public class winControl_Dodge : MonoBehaviour
         step = 0;
         final_play = false;
         amountofDeath++;
-
-
-
-
+        
     }
 
     // Update is called once per frame

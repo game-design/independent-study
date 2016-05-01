@@ -52,10 +52,8 @@ public class missionTP : MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
 
-
         gTracker.CaptureEvent("enter "+targetLevel);
         Gloggr.Instance.PostEvents();
-
 
         Debug.Log("capture event");
         SceneManager.LoadScene(targetLevel);
