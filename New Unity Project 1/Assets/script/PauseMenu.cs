@@ -20,9 +20,6 @@ public class PauseMenu : MonoBehaviour {
         gTracker = GetComponent<Gloggr_Tracker>();
 
         Time.timeScale = 1;
-        //Locate player according to current mission
-        // 1 for before level 1 while 2 for finish level 1
-        // 3 for before level 2 while 4 for finish level 2
         if (SceneManager.GetActiveScene().name == "Initial Room" && currentPosition != 0)
         {
 
