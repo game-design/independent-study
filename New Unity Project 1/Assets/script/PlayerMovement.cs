@@ -47,24 +47,17 @@ public class PlayerMovement : MonoBehaviour
             myClicCounter = false;
             return;
         }
-
-
     }
 
     void update()
     {
-
-
     }
-
-
+    
     void Move(float h,float v)
 	{
-
         movement.Set (h, 0f, v);
 		movement = movement.normalized * speed * Time.deltaTime;
-		playerRigidbody.MovePosition (transform.position + movement);
-        
+		playerRigidbody.MovePosition (transform.position + movement);        
     }
 
 	void Turning(float h,float v)
@@ -94,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(rotationY);
             playerRigidbody.MoveRotation(newRotation);
         }
-
     }
 
 	void Animating(float h,float v)
@@ -105,10 +97,4 @@ public class PlayerMovement : MonoBehaviour
         else
             anim.Play("Wait");   
 	}
-
-
-
-
-
-
 }

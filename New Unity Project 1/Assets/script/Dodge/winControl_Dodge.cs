@@ -66,7 +66,6 @@ public class winControl_Dodge : MonoBehaviour
                 final.Play();
                 final_play = true;
             }
-
         }
     }
 

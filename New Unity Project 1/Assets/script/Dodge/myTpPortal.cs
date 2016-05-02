@@ -42,9 +42,7 @@ public class myTpPortal : MonoBehaviour {
         if (GUI.Button(new Rect(50, 40, 50, 20), "Sure"))
         {
             showWin = false;
-            //level 1 dodgeball
-
-
+            
             if (curSituation == 'b' || curSituation == 'd' || curSituation == 'f' || curSituation == 'h' || curSituation == 'j')
             {
                 string message = "Pass time: " + winControl_Dodge.current_time.ToString() + " death: " + winControl_Dodge.amountofDeath.ToString();

@@ -22,54 +22,16 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1;
         if (SceneManager.GetActiveScene().name == "Initial Room" && currentPosition != 0)
         {
-
             Transform playerT = GameObject.Find("Cha_Knight").transform;
             Transform mCameraT = GameObject.Find("Main Camera").transform;
             playerT.position = positions[PauseMenu.currentPosition].position;
+            mCameraT.GetComponent<CameraFollow>().setOffset();
             /*mCameraT.position = new Vector3(positions[PauseMenu.currentPosition].position.x, 
                                             positions[PauseMenu.currentPosition].position.y + 25, 
                                             positions[PauseMenu.currentPosition].position.z - 15);
             */
-            mCameraT.position = playerT.position + mCameraT.GetComponent<CameraFollow>().getOffset();
+            //mCameraT.position = playerT.position + mCameraT.GetComponent<CameraFollow>().getOffset();
 
-            /*switch (PauseMenu.currentPosition){
-                case 0:
-                    playerT.position = positions[0].position;
-                    mCameraT.position = new Vector3(positions[0].position.x, positions[0].position.y + 25, positions[0].position.y - 15);
-                    break;
-                case 1:
-                    playerT.position = new Vector3(-119, 0, -146);
-                    mCameraT.position = new Vector3(-119, 25, -161);
-                    break;
-                case 2:
-                    playerT.position = new Vector3(-120, 0, -98);
-                    mCameraT.position = new Vector3(-120, 25, -114);
-                    break;
-                case 3:
-                    playerT.position = new Vector3(-112, 0, 2);
-                    mCameraT.position = new Vector3(-112,25,-13);
-                    break;
-                case 4:
-                    playerT.position = new Vector3(-90, 0, 34);
-                    mCameraT.position = new Vector3(-90, 25, 19);
-                    break;
-                case 5:
-                    playerT.position = new Vector3(-87, 0, 74);
-                    mCameraT.position = new Vector3(-87, 25, 58);
-                    break;
-                case 6:
-                    playerT.position = new Vector3(-87, 0, 74);
-                    mCameraT.position = new Vector3(-87, 25, 58);
-                    break;
-                case 7:
-                    playerT.position = new Vector3(-87, 0, 74);
-                    mCameraT.position = new Vector3(-87, 25, 58);
-                    break;
-                case 8:
-                    playerT.position = new Vector3(-87, 0, 74);
-                    mCameraT.position = new Vector3(-87, 25, 58);
-                    break;
-            }*/
         }
     }
 	
