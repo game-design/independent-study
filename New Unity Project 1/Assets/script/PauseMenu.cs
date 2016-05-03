@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour {
         gTracker = GetComponent<Gloggr_Tracker>();
 
         Time.timeScale = 1;
-        if (SceneManager.GetActiveScene().name == "Initial Room" && currentPosition != 0)
+        if (SceneManager.GetActiveScene().name == "Initial Room")
         {
             Transform playerT = GameObject.Find("Cha_Knight").transform;
             Transform mCameraT = GameObject.Find("Main Camera").transform;
