@@ -48,7 +48,29 @@ public class PauseMenu : MonoBehaviour {
         else
             Time.timeScale = 1;
 
-	}
+
+        if(PauseMenu.currentPosition==7)
+            StartCoroutine("load_level");
+
+
+    }
+
+
+    IEnumerator load_level()
+    {
+        yield return new WaitForSeconds(3f);
+
+        gTracker.CaptureEvent("Finish game");
+        Gloggr.Instance.PostEvents();
+
+        Debug.Log("capture event");
+        SceneManager.LoadScene("startAnimation");
+    }
+
+
+
+
+
 
     void OnGUI()
     {
